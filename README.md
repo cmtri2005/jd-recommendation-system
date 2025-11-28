@@ -1,0 +1,1 @@
+A mini system responsible for JD recommendation, mark matching score between Resume & JD, real-time IT jobs trending in social.
