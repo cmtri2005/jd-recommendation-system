@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import List
-from schema.responsibility import Responsibility
+from schema.responsibility import ResumeResponsibility
 
 class Experience(BaseModel):
     """Model representing the work experience entry in a resume."""    
