@@ -33,8 +33,6 @@ class LLMFactory:
                 kwargs["max_output_tokens"] = config["max_completion_tokens"]
             if "temperature" in config:
                 kwargs["temperature"] = config["temperature"]
-            if "max_retries" in config:
-                kwargs["max_retries"] = config["max_retries"]
             if "timeout" in config:
                 kwargs["timeout"] = config["timeout"]
 
@@ -45,11 +43,11 @@ class LLMFactory:
 
             kwargs = {
                 "model": config["model_name"],
-                "google_api_key": config["api_key"],
+                "groq_api_key": config["api_key"],
             }
 
             if "max_completion_tokens" in config:
-                kwargs["max_output_tokens"] = config["max_completion_tokens"]
+                kwargs["max_tokens"] = config["max_completion_tokens"]
             if "temperature" in config:
                 kwargs["temperature"] = config["temperature"]
             if "max_retries" in config:
@@ -59,7 +57,7 @@ class LLMFactory:
 
             return ChatGroq(**kwargs)
 
-        if llm_provider not in LLMFactory.Provier:
+        if llm_provider not in LLMFactory.Provider:
             raise ValueError(
-                f"Unsupported LLM provider: {llm_provider}. Supported provider are: {list(LLMFactory)}"
+                f"Unsupported LLM provider: {llm_provider}. Supported providers are: {list(LLMFactory.Provider)}"
             )
