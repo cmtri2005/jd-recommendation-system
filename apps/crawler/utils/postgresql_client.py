@@ -21,12 +21,12 @@ class PostgreSQLClient:
         )
         return conn
 
-    def execute_query(self, query, params: None):
+    def execute_query(self, query, params=None):
         conn = self.create_conn()
         cursor = conn.cursor()
         if params:
             cursor.execute(query, params)
-            print("Succesfully")
+            print("Successfully")
         else:
             cursor.execute(query)
             print("Successfully")
