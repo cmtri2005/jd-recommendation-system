@@ -4,7 +4,7 @@ from typing import List
 class JD(BaseModel):
     """ALWAYS user this model to structure your response to the user."""
     job_summary: str = Field(description="A brief summary of the job description.")
-    require_hard_skills: List[str] = Field(default=[], description="A list of required hard skills the job description mentioned. Otherwise, leave it empty.")
+    required_hard_skills: List[str] = Field(default=[], description="A list of required hard skills the job description mentioned. Otherwise, leave it empty.")
     optional_hard_skills: List[str] = Field(default=[], description="A list of optional hard skills the job description mentioned. Otherwise, leave it empty.")
     required_soft_skills: List[str] = Field(default=[], description="A list of required soft skills the job description mentioned. Otherwise, leave it empty.")
     optional_soft_skills: List[str] = Field(default=[], description="A list of optional soft skills the job description mentioned. Otherwise, leave it empty.")
