@@ -1,0 +1,302 @@
+[
+  {
+    "job": "Backend Developer (AI, Golang, MongoDB)",
+    "pos_score": 96,
+    "neg_score": 20,
+    "success": true
+  },
+  {
+    "job": "Frontend Developer (ReactJS, TypeScript, VueJS)",
+    "pos_score": 87,
+    "neg_score": 28,
+    "success": true
+  },
+  {
+    "job": "Middle & Senior Data Engineer (Python, SQL, AI)",
+    "pos_score": 95,
+    "neg_score": 12,
+    "success": true
+  },
+  {
+    "job": "Senior Application Operations (V\u1eadn h\u00e0nh \u1ee9ng d\u1ee5ng)",
+    "pos_score": 95,
+    "neg_score": 0,
+    "success": true
+  },
+  {
+    "job": "[Ho Chi Minh] Full-Stack Developer (ReactJS/ NodeJS)",
+    "pos_score": 94,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Data Architect (Oracle, PostgreSQL, MongoDB, Redis, S3)",
+    "pos_score": 95,
+    "neg_score": 18,
+    "success": true
+  },
+  {
+    "job": "Senior Java Developer (Spring Boot, Kotlin)",
+    "pos_score": 95,
+    "neg_score": 0,
+    "success": true
+  },
+  {
+    "job": "Cloud Engineer (Aws/Azure)",
+    "pos_score": 97,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": ".NET Developer (C#, JavaScript)",
+    "pos_score": 95,
+    "neg_score": 0,
+    "success": true
+  },
+  {
+    "job": "Senior Software Engineer (Java)",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Senior Frontend Engineer (JavaScript, VueJS, English)",
+    "pos_score": 95,
+    "neg_score": 10,
+    "success": true
+  },
+  {
+    "job": "Full-Stack Software Engineer (NestJS, Typescript)",
+    "pos_score": 0,
+    "neg_score": 10,
+    "success": false
+  },
+  {
+    "job": "Senior Flutter Developer (iOS/Android)",
+    "pos_score": 95,
+    "neg_score": 10,
+    "success": true
+  },
+  {
+    "job": "All Level - AI Engineer (Data Scientist)",
+    "pos_score": 0,
+    "neg_score": 15,
+    "success": false
+  },
+  {
+    "job": "Full Stack Developer (Python,FastAPI,React,Javascript)",
+    "pos_score": 95,
+    "neg_score": 20,
+    "success": true
+  },
+  {
+    "job": "Senior Mobile Engineer (Android Kotlin)",
+    "pos_score": 97,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Backend Developer (NodeJS, Python)",
+    "pos_score": 98,
+    "neg_score": 28,
+    "success": true
+  },
+  {
+    "job": "Fullstack (Nodejs/React)",
+    "pos_score": 0,
+    "neg_score": 15,
+    "success": false
+  },
+  {
+    "job": "Senior Front End - ReactJS",
+    "pos_score": 95,
+    "neg_score": 28,
+    "success": true
+  },
+  {
+    "job": "(Senior) Backend Engineer",
+    "pos_score": 95,
+    "neg_score": 20,
+    "success": true
+  },
+  {
+    "job": "Senior Solution Architect (Web/Mobile, AI)",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Flutter Developer",
+    "pos_score": 0,
+    "neg_score": 25,
+    "success": false
+  },
+  {
+    "job": "[Sign-on Bonus] Frontend Technical Lead - $70K/year",
+    "pos_score": 95,
+    "neg_score": 0,
+    "success": true
+  },
+  {
+    "job": "Senior. Data Engineer [1 MONTH SIGN-ON BONUS]",
+    "pos_score": 95,
+    "neg_score": 28,
+    "success": true
+  },
+  {
+    "job": "System Engineer ( PHP & Laravel )",
+    "pos_score": 95,
+    "neg_score": 32,
+    "success": true
+  },
+  {
+    "job": "Data Platform Operations (Database, Oracle)",
+    "pos_score": 100,
+    "neg_score": 18,
+    "success": true
+  },
+  {
+    "job": "Staff Mobile Engineer (Android)",
+    "pos_score": 100,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Fullstack Dev (Java/Spring, Angular, Python)",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Senior Backend Developer (Python/Django)",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Data Analyst (SQL, Google BigQuery, Python, R)",
+    "pos_score": 98,
+    "neg_score": 27,
+    "success": true
+  },
+  {
+    "job": "Backend Developer (Java)",
+    "pos_score": 93,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Golang Backend Engineer (Middle/Senior)",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Product Manager (Good English, AI/Machine Learning)",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Software Developer (JavaScript, TypeScript)",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Back End Developer (Java, MySQL, Spring)",
+    "pos_score": 85,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "[Hybrid] Senior Fullstack Engineer (VueJS, .NET)",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Software Engineer (.Net/Java/SQL)",
+    "pos_score": 98,
+    "neg_score": 22,
+    "success": true
+  },
+  {
+    "job": "Manual & Automation Test (Tester/ Playwright/ AI)",
+    "pos_score": 92,
+    "neg_score": 52,
+    "success": true
+  },
+  {
+    "job": "Security Engineer (System, Cloud, Network)",
+    "pos_score": 98,
+    "neg_score": 10,
+    "success": true
+  },
+  {
+    "job": "Front-End Web Developer (React.js, Next.js, TypeScript)",
+    "pos_score": 95,
+    "neg_score": 0,
+    "success": true
+  },
+  {
+    "job": "Staff Engineer - Full Stack",
+    "pos_score": 95,
+    "neg_score": 18,
+    "success": true
+  },
+  {
+    "job": "Cloud & Database Ops",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Frontend/Fullstack Engineer (Nextjs/TypeScript/English)",
+    "pos_score": 98,
+    "neg_score": 24,
+    "success": true
+  },
+  {
+    "job": "Senior Java Backend Developer",
+    "pos_score": 95,
+    "neg_score": 0,
+    "success": true
+  },
+  {
+    "job": "Python Technical Lead (Cloud, FastAPI, Django)",
+    "pos_score": 95,
+    "neg_score": 100,
+    "success": false
+  },
+  {
+    "job": "Full Stack Developer (Java, Springboot, React)",
+    "pos_score": 100,
+    "neg_score": 15,
+    "success": true
+  },
+  {
+    "job": "Java Backend Developer (Spring Boot, SQL)",
+    "pos_score": 0,
+    "neg_score": 15,
+    "success": false
+  },
+  {
+    "job": "Senior .NET Developer \u2013 working on smart AI solutions",
+    "pos_score": 0,
+    "neg_score": 10,
+    "success": false
+  },
+  {
+    "job": "Risk Analyst",
+    "pos_score": 98,
+    "neg_score": 22,
+    "success": true
+  },
+  {
+    "job": "Manual QA Engineer (QA QC/Tester/English)",
+    "pos_score": 98,
+    "neg_score": 0,
+    "success": true
+  }
+]

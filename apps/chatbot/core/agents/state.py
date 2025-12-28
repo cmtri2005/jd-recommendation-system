@@ -10,3 +10,4 @@ class State(TypedDict):
     resume_text: Resume
     jd_text: JD
     messages: Annotated[List, operator.add]
+    retrieved_jobs: List

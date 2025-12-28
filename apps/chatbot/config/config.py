@@ -4,7 +4,7 @@ from dotenv import dotenv_values
 from pathlib import Path
 
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent
 
 
 class ConfigSingleton:
@@ -31,7 +31,7 @@ class ConfigSingleton:
             "BEDROCK_EMBEDDING_MODEL", "amazon.titan-embed-text-v2:0"
         )
         self.BEDROCK_LLM_MODEL = env.get(
-            "BEDROCK_LLM_MODEL", "meta.llama3-3-70b-instruct-v1:0"
+            "BEDROCK_LLM_MODEL", "anthropic.claude-3-5-sonnet-20240620-v1:0"
         )
 
         # GROQ

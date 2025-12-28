@@ -47,14 +47,13 @@ class EvaluationAgent(BaseAgent):
                     1. **Total score (out of 100)**
                     2. **Score breakdown by category** (e.g., Skills: 24/30, Experience: 32/50)
                     3. **A short summary** (3–4 lines) covering major strengths and missing areas.
-                    4. **A final recommendation**, based on these rules:
-                        - If the candidate scores **above 75** and meets the key job requirements:
-                            - Say: **✅ I recommend this candidate for the job.**
-                        - If the candidate scores **between 50 and 75**, with partial matches in skills or experience:
-                            - Say: **❌ I do not recommend this candidate for this specific job.**
-                            - Follow with: **However, I recommend this candidate for an internship or entry-level position, as they show foundational potential.**
-                        - If the candidate scores **below 50**:
-                            - Say: **❌ I do not recommend this candidate for the job.**
+                    4. **Lists of missing hard skill**: A list of hard skills that resume's user missing to pass JD.
+                    5. **References**: You apply some references that can be a document, blog resource, tutorial, v.v for user to improve their hard skills missing.
+                    5. **A final recommendation**, based on these rules:
+                        - If the candidate scores **above 70** and meets the key job requirements:
+                            - Say: **✅ JD was suitable for your resume.**
+                        - If the candidate scores **below 70**:
+                            - Say: **❌ Your resume deos not match this JD.**
                             - Follow with a reason based on the biggest gaps (skills, experience, or education).
                 """,
                 ),

@@ -14,10 +14,12 @@ class LLMFactory:
         temperature: NotRequired[float]
         max_retrieves: NotRequired[float]
         timeout: NotRequired[float]
+        model_region: NotRequired[str]
 
     class Provider(Enum):
         GEMINI = "gemini"
         GROQ = "groq"
+        BEDROCK = "bedrock"
 
     @staticmethod
     def create_llm(llm_provider: Provider, config: LLMConfig) -> BaseChatModel:
@@ -56,6 +58,25 @@ class LLMFactory:
                 kwargs["timeout"] = config["timeout"]
 
             return ChatGroq(**kwargs)
+
+        if llm_provider == LLMFactory.Provider.BEDROCK:
+            from langchain_aws import ChatBedrock
+
+            kwargs = {
+                "model_id": config["model_name"],
+                "region_name": config.get("model_region", "us-east-1")
+            }
+
+            if "max_completion_tokens" in config:
+                kwargs["max_tokens"] = config["max_completion_tokens"]
+            if "temperature" in config:
+                kwargs["temperature"] = config["temperature"]
+            if "max_retries" in config:
+                kwargs["max_retries"] = config["max_retries"]
+            if "timeout" in config:
+                kwargs["timeout"] = config["timeout"]
+
+            return ChatBedrock(**kwargs)
 
         if llm_provider not in LLMFactory.Provider:
             raise ValueError(

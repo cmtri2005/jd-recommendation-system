@@ -8,6 +8,7 @@ sys.path.append(current_dir)
 from core.agents.orchestrator import Orchestrator
 from core.agents.state import State
 
+
 def main():
     print("Initializing Orchestrator...")
     orchestrator = Orchestrator()
@@ -28,11 +29,7 @@ def main():
         return
 
     # Initial State
-    initial_state = {
-        "resume_path": resume_path,
-        "jd_path": jd_path,
-        "messages": []
-    }
+    initial_state = {"resume_path": resume_path, "jd_path": jd_path, "messages": []}
 
     print("\nInvoking Graph...")
     try:
@@ -41,7 +38,7 @@ def main():
         print("-" * 50)
         print("Final State Keys:", result.keys())
         print("-" * 50)
-        
+
         messages = result.get("messages", [])
         if messages:
             print("Evaluation Result:")
@@ -49,11 +46,25 @@ def main():
             print(messages[-1])
         else:
             print("No messages in result.")
-            
+
+        # Print recommended jobs from vector database
+        retrieved_jobs = result.get("retrieved_jobs", [])
+        if retrieved_jobs:
+            print("\n" + "=" * 50)
+            print("RECOMMENDED JOBS FROM VECTOR DATABASE:")
+            print("=" * 50)
+            for i, job in enumerate(retrieved_jobs, 1):
+                print(f"\n--- Job {i} ---")
+                print(job)
+        else:
+            print("\nNo recommended jobs found.")
+
     except Exception as e:
         print(f"\nGraph Execution Failed: {e}")
         import traceback
+
         traceback.print_exc()
+
 
 if __name__ == "__main__":
     main()
