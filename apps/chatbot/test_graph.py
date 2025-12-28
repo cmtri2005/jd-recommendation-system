@@ -14,8 +14,8 @@ def main():
     graph = orchestrator.orchestrate()
 
     # Define paths
-    resume_path = os.path.join(current_dir, "assets/Cao_Minh_Tri_Resume.pdf")
-    jd_path = os.path.join(current_dir, "assets/url.docx")
+    resume_path = os.path.join(current_dir, "resume_jd/NGUYENMINHTRI_TEST.pdf")
+    jd_path = os.path.join(current_dir, "resume_jd/url.docx")
 
     print(f"Resume Path: {resume_path}")
     print(f"JD Path: {jd_path}")

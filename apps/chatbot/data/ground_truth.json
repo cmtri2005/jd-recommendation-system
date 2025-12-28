@@ -1,0 +1,52 @@
+[
+  {
+    "jd_path": "resume_jd/url.docx",
+    "resume_path": "resume_jd/NGUYENMINHTRI_TEST.pdf",
+    "label": "pass"
+  },
+  {
+    "jd_path": "resume_jd/url2.docx",
+    "resume_path": "resume_jd/NGUYENMINHTRI_TEST2.pdf",
+    "label": "fail"
+  },
+  {
+    "jd_path": "resume_jd/url3.docx",
+    "resume_path": "resume_jd/NGUYENMINHTRI_TEST3.pdf",
+    "label": "pass"
+  },
+  {
+    "jd_path": "resume_jd/url4.docx",
+    "resume_path": "resume_jd/NGUYENMINHTRI_TEST4.pdf",
+    "label": "pass"
+  },
+  {
+    "jd_path": "resume_jd/url5.docx",
+    "resume_path": "resume_jd/NGUYENMINHTRI_TEST5.pdf",
+    "label": "pass"
+  },
+  {
+    "jd_path": "resume_jd/url6.docx",
+    "resume_path": "resume_jd/NGUYENMINHTRI_TEST6.pdf",
+    "label": "fail"
+  },
+  {
+    "jd_path": "resume_jd/url7.docx",
+    "resume_path": "resume_jd/NGUYENMINHTRI_TEST7.pdf",
+    "label": "pass"
+  },
+  {
+    "jd_path": "resume_jd/url8.docx",
+    "resume_path": "resume_jd/NGUYENMINHTRI_TEST8.pdf",
+    "label": "fail"
+  },
+  {
+    "jd_path": "resume_jd/url9.docx",
+    "resume_path": "resume_jd/NGUYENMINHTRI_TEST9.pdf",
+    "label": "pass"
+  },
+  {
+    "jd_path": "resume_jd/url10.docx",
+    "resume_path": "resume_jd/NGUYENMINHTRI_TEST10.pdf",
+    "label": "fail"
+  }
+]

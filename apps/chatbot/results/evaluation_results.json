@@ -1,0 +1,145 @@
+{
+  "accuracy": 0.8,
+  "precision": 0.8333333333333334,
+  "recall": 0.8333333333333334,
+  "f1_score": 0.8333333333333334,
+  "confusion_matrix": [
+    [
+      3,
+      1
+    ],
+    [
+      1,
+      5
+    ]
+  ],
+  "confusion_matrix_labels": [
+    "fail",
+    "pass"
+  ],
+  "score_correlation": 0.7981918216487899,
+  "mae": 0.28700000000000003,
+  "mse": 0.117845,
+  "rmse": 0.3432855953866984,
+  "classification_report": {
+    "fail": {
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1-score": 0.75,
+      "support": 4.0
+    },
+    "pass": {
+      "precision": 0.8333333333333334,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.8333333333333334,
+      "support": 6.0
+    },
+    "accuracy": 0.8,
+    "macro avg": {
+      "precision": 0.7916666666666667,
+      "recall": 0.7916666666666667,
+      "f1-score": 0.7916666666666667,
+      "support": 10.0
+    },
+    "weighted avg": {
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1-score": 0.8,
+      "support": 10.0
+    }
+  },
+  "num_samples": 10,
+  "matched_pairs": [
+    {
+      "jd_path": "resume_jd/url.docx",
+      "resume_path": "resume_jd/NGUYENMINHTRI_TEST.pdf",
+      "ground_truth_score": 1.0,
+      "predicted_score": 0.6,
+      "ground_truth_label": "pass",
+      "predicted_label": "fail",
+      "match": false
+    },
+    {
+      "jd_path": "resume_jd/url2.docx",
+      "resume_path": "resume_jd/NGUYENMINHTRI_TEST2.pdf",
+      "ground_truth_score": 0.0,
+      "predicted_score": 0.38,
+      "ground_truth_label": "fail",
+      "predicted_label": "fail",
+      "match": true
+    },
+    {
+      "jd_path": "resume_jd/url3.docx",
+      "resume_path": "resume_jd/NGUYENMINHTRI_TEST3.pdf",
+      "ground_truth_score": 1.0,
+      "predicted_score": 0.88,
+      "ground_truth_label": "pass",
+      "predicted_label": "pass",
+      "match": true
+    },
+    {
+      "jd_path": "resume_jd/url4.docx",
+      "resume_path": "resume_jd/NGUYENMINHTRI_TEST4.pdf",
+      "ground_truth_score": 1.0,
+      "predicted_score": 0.85,
+      "ground_truth_label": "pass",
+      "predicted_label": "pass",
+      "match": true
+    },
+    {
+      "jd_path": "resume_jd/url5.docx",
+      "resume_path": "resume_jd/NGUYENMINHTRI_TEST5.pdf",
+      "ground_truth_score": 1.0,
+      "predicted_score": 0.815,
+      "ground_truth_label": "pass",
+      "predicted_label": "pass",
+      "match": true
+    },
+    {
+      "jd_path": "resume_jd/url6.docx",
+      "resume_path": "resume_jd/NGUYENMINHTRI_TEST6.pdf",
+      "ground_truth_score": 0.0,
+      "predicted_score": 0.25,
+      "ground_truth_label": "fail",
+      "predicted_label": "fail",
+      "match": true
+    },
+    {
+      "jd_path": "resume_jd/url7.docx",
+      "resume_path": "resume_jd/NGUYENMINHTRI_TEST7.pdf",
+      "ground_truth_score": 1.0,
+      "predicted_score": 0.88,
+      "ground_truth_label": "pass",
+      "predicted_label": "pass",
+      "match": true
+    },
+    {
+      "jd_path": "resume_jd/url8.docx",
+      "resume_path": "resume_jd/NGUYENMINHTRI_TEST8.pdf",
+      "ground_truth_score": 0.0,
+      "predicted_score": 0.405,
+      "ground_truth_label": "fail",
+      "predicted_label": "fail",
+      "match": true
+    },
+    {
+      "jd_path": "resume_jd/url9.docx",
+      "resume_path": "resume_jd/NGUYENMINHTRI_TEST9.pdf",
+      "ground_truth_score": 1.0,
+      "predicted_score": 0.88,
+      "ground_truth_label": "pass",
+      "predicted_label": "pass",
+      "match": true
+    },
+    {
+      "jd_path": "resume_jd/url10.docx",
+      "resume_path": "resume_jd/NGUYENMINHTRI_TEST10.pdf",
+      "ground_truth_score": 0.0,
+      "predicted_score": 0.74,
+      "ground_truth_label": "fail",
+      "predicted_label": "pass",
+      "match": false
+    }
+  ],
+  "threshold": 0.7
+}

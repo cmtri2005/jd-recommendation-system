@@ -20,11 +20,34 @@ load_dotenv()
 class Orchestrator:
     def __init__(self):
         self.logger = Logger("orchestrator")
-        model_name = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
-        api_key = os.environ.get("GROQ_API_KEY")
+        
+        # Get provider from env (default: groq, fallback to gemini if groq key missing)
+        provider_str = os.environ.get("LLM_PROVIDER", "groq").lower()
+        groq_api_key = os.environ.get("GROQ_API_KEY")
+        gemini_api_key = os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY")
+        
+        # Auto-fallback: if groq key missing, use gemini
+        if provider_str == "groq" and not groq_api_key:
+            self.logger.warning("GROQ_API_KEY not found, falling back to Gemini")
+            provider_str = "gemini"
+        
+        if provider_str == "gemini":
+            provider = LLMFactory.Provider.GEMINI
+            model_name = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+            api_key = gemini_api_key
+            if not api_key:
+                raise ValueError("GOOGLE_API_KEY or GEMINI_API_KEY must be set in environment variables")
+        else:  # groq
+            provider = LLMFactory.Provider.GROQ
+            model_name = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+            api_key = groq_api_key
+            if not api_key:
+                raise ValueError("GROQ_API_KEY must be set in environment variables")
+        
+        self.logger.info(f"Using LLM Provider: {provider.value}, Model: {model_name}")
         
         self.llm = LLMFactory.create_llm(
-            llm_provider=LLMFactory.Provider.GROQ,
+            llm_provider=provider,
             config=LLMFactory.LLMConfig(model_name=model_name, api_key=api_key),
         )
         self.tools = ["docx_loader", "pdf_loader"]

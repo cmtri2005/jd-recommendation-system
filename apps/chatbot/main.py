@@ -44,32 +44,32 @@ if __name__ == "__main__":
         print(f"Error saving resume to database: {e}")
     
     #Extract JD
-    print("\nEXTRACTING JOB DESCRIPTIONS")
-    print("=" * 50)
-    jd_agent = JDExtractAgent("jd_agent", config.llm, config.tools)
-    jd_path = "resume_jd/url.docx"
-    result_jd = jd_agent.extract_jd(jd_path)
-    print(f"Found {result_jd['count']} job description(s):")
-    print("=" * 50)
-    for i, jd_item in enumerate(result_jd['jds'], 1):
-        print(f"\nJD #{i}:")
-        print(f"Job Summary: {jd_item.job_summary}")
-        print(f"Required Hard Skills: {jd_item.require_hard_skills}")
-        print(f"Optional Hard Skills: {jd_item.optional_hard_skills}")
-        print(f"Required Soft Skills: {jd_item.required_soft_skills}")
-        print(f"Optional Soft Skills: {jd_item.optional_soft_skills}")
-        print(f"Required Work Experiences: {jd_item.required_work_experiences}")
-        print(f"Optional Work Experiences: {jd_item.optional_work_experiences}")
-        print(f"Required Educations: {jd_item.required_educations}")
-        print(f"Optional Educations: {jd_item.optional_educations}")
-        print(f"Required Years of Experience: {jd_item.required_years_of_experience}")
-        print("-" * 50)
+    # print("\nEXTRACTING JOB DESCRIPTIONS")
+    # print("=" * 50)
+    # jd_agent = JDExtractAgent("jd_agent", config.llm, config.tools)
+    # jd_path = "resume_jd/url.docx"
+    # result_jd = jd_agent.extract_jd(jd_path)
+    # print(f"Found {result_jd['count']} job description(s):")
+    # print("=" * 50)
+    # for i, jd_item in enumerate(result_jd['jds'], 1):
+    #     print(f"\nJD #{i}:")
+    #     print(f"Job Summary: {jd_item.job_summary}")
+    #     print(f"Required Hard Skills: {jd_item.require_hard_skills}")
+    #     print(f"Optional Hard Skills: {jd_item.optional_hard_skills}")
+    #     print(f"Required Soft Skills: {jd_item.required_soft_skills}")
+    #     print(f"Optional Soft Skills: {jd_item.optional_soft_skills}")
+    #     print(f"Required Work Experiences: {jd_item.required_work_experiences}")
+    #     print(f"Optional Work Experiences: {jd_item.optional_work_experiences}")
+    #     print(f"Required Educations: {jd_item.required_educations}")
+    #     print(f"Optional Educations: {jd_item.optional_educations}")
+    #     print(f"Required Years of Experience: {jd_item.required_years_of_experience}")
+    #     print("-" * 50)
         
-        # Save JD to Database
-        print(f"\nSAVING JD #{i} TO DATABASE")
-        try:
-            jd_writer = JDDBWriter()
-            jd_id = jd_writer.save_jd(jd_item, url=None)
-            print(f"JD saved with ID: {jd_id}")
-        except Exception as e:
-            print(f"Error saving JD to database: {e}")
+    #     # Save JD to Database
+    #     print(f"\nSAVING JD #{i} TO DATABASE")
+    #     try:
+    #         jd_writer = JDDBWriter()
+    #         jd_id = jd_writer.save_jd(jd_item, url=None)
+    #         print(f"JD saved with ID: {jd_id}")
+    #     except Exception as e:
+    #         print(f"Error saving JD to database: {e}")

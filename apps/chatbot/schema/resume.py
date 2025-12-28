@@ -9,6 +9,10 @@ class Resume(BaseModel):
     soft_skills: List[str] = Field(default=[], description="A list of the applicant's soft skills if available.")
     work_experiences: List[Experience] = Field(default=[], description="A list of work experiences held by the applicant if available.")
     educations: List[str] = Field(default=[], description="The list of educational backgrounds of the applicant if available.")
-    years_of_experience: int = Field(default=0, description="Total years of experience in the field if work experience is available. Otherwise, leave it zero.")
+    # Accept floats (e.g., 2.5) to avoid schema errors from LLM extraction
+    years_of_experience: float = Field(
+        default=0,
+        description="Total years of experience in the field. Can be decimal (e.g., 2.5).",
+    )
     certifications: List[str] = Field(default=[], description="A list of certifications held by the applicant if available.")
     projects: List[str] = Field(default=[], description="A list of projects. If work experience is not available or less than 1 year, this field is required. Otherwise, leave it empty.")
