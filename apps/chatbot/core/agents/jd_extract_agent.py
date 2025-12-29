@@ -1,5 +1,6 @@
 from core.agents.base_agent import BaseAgent
 from typing import Callable
+import traceback
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
 from schema.jd import JD, JDList
@@ -47,7 +48,19 @@ class JDExtractAgent(BaseAgent):
         )
 
     def extract_jd(self, jd_path: str):
-        jd_content = ""
+        """Extract job description information from file.
+
+        Args:
+            jd_path: Path to JD file (PDF or DOCX)
+
+        Returns:
+            Dict containing list of extracted JD objects and count
+
+        Raises:
+            FileNotFoundError: If file doesn't exist
+            ValueError: If file type is unsupported or no JDs found
+            RuntimeError: If extraction fails
+        """
         try:
             if "docx" in jd_path.split("."):
                 self.logger.info(f"Processing DOCX jd: {jd_path}")
@@ -55,11 +68,34 @@ class JDExtractAgent(BaseAgent):
             elif "pdf" in jd_path.split("."):
                 self.logger.info(f"Processing PDF jd: {jd_path}")
                 jd_content = pdf_loader.invoke(jd_path)
+            else:
+                raise ValueError(f"Unsupported file type: {jd_path}")
+        except FileNotFoundError:
+            self.logger.error(f"File not found: {jd_path}")
+            raise
+        except ValueError:
+            # Re-raise ValueError for unsupported file types
+            raise
         except Exception as e:
-            jd_content = ""
-            self.logger.error(f"Error while processing extract jd: {e}")
+            self.logger.error(
+                f"Error while processing JD file: {e}\n{traceback.format_exc()}"
+            )
+            raise RuntimeError(f"Failed to extract JD from {jd_path}") from e
 
-        chain = self.prompt | self.llm.with_structured_output(JDList)
-        jd_list_result = chain.invoke({"jd_content": jd_content})
+        # Extract structured data using LLM
+        try:
+            chain = self.prompt | self.llm.with_structured_output(JDList)
+            jd_list_result = chain.invoke({"jd_content": jd_content})
 
-        return {"jds": jd_list_result.jds, "count": len(jd_list_result.jds)}
+            if not jd_list_result.jds:
+                raise ValueError(f"No job descriptions found in {jd_path}")
+
+            self.logger.info(
+                f"Successfully extracted {len(jd_list_result.jds)} JD(s) from {jd_path}"
+            )
+            return {"jds": jd_list_result.jds, "count": len(jd_list_result.jds)}
+        except Exception as e:
+            self.logger.error(
+                f"LLM extraction failed for {jd_path}: {e}\n{traceback.format_exc()}"
+            )
+            raise RuntimeError(f"Failed to parse JD content with LLM") from e
