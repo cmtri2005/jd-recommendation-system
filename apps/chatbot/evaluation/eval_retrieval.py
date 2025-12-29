@@ -17,6 +17,7 @@ from langchain_core.documents import Document
 from ragas import evaluate
 from ragas.metrics import context_precision, context_recall
 from datasets import Dataset
+from evaluation.metrics_utils import calculate_all_metrics, calculate_hit_rate_at_k
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
@@ -68,7 +69,7 @@ def main():
 
     # 2. Load Data
     data_path = os.path.join(
-        os.path.dirname(__file__), "..", "dataset", "golden_dataset.json"
+        os.path.dirname(__file__), "dataset", "golden_dataset.json"
     )
     if not os.path.exists(data_path):
         print("Golden dataset not found. Run generate_dataset.py first.")
@@ -115,32 +116,98 @@ def main():
 
     ragas_ds = prepare_ragas_dataset(results)
 
-    try:
-        print("Calculating exact match recall (Simplified)...")
-        hits = 0
-        for r in results:
-            if r["ground_truth"] in r["contexts"]:
-                hits += 1
+    # Calculate comprehensive metrics
+    print("\n" + "=" * 60)
+    print("📊 RETRIEVAL EVALUATION METRICS")
+    print("=" * 60)
 
-        print(
-            f"Exact Hit Rate @ 3: {hits}/{len(results)} ({hits/len(results)*100:.2f}%)"
-        )
+    try:
+        # Calculate all metrics at once
+        metrics = calculate_all_metrics(results, k_values=[1, 3, 5])
+
+        # Display Hit Rate @ k
+        print("\n🎯 Hit Rate @ k (Success Rate):")
+        for k in [1, 3, 5]:
+            rate = metrics["hit_rate"][f"at_{k}"]
+            hit_data = calculate_hit_rate_at_k(results, k)
+            print(
+                f"  - Hit Rate @ {k}: {hit_data['hits']}/{hit_data['total']} "
+                f"({rate*100:.2f}%)"
+            )
+
+        # Display MRR
+        print(f"\n📍 Mean Reciprocal Rank (MRR): {metrics['mrr']:.4f}")
+        print("   (Higher = relevant docs appear earlier)")
+
+        # Display Precision @ k
+        print("\n🎯 Precision @ k (Accuracy of top k):")
+        for k in [1, 3, 5]:
+            precision = metrics["precision"][f"at_{k}"]
+            print(f"  - P@{k}: {precision:.4f}")
+
+        # Display Recall @ k
+        print("\n📦 Recall @ k (Coverage in top k):")
+        for k in [1, 3, 5]:
+            recall = metrics["recall"][f"at_{k}"]
+            print(f"  - R@{k}: {recall:.4f}")
+
+        # Display NDCG @ k
+        print("\n⭐ NDCG @ k (Quality weighted by ranking):")
+        for k in [1, 3, 5]:
+            ndcg = metrics["ndcg"][f"at_{k}"]
+            print(f"  - NDCG@{k}: {ndcg:.4f}")
+
+        print("\n" + "=" * 60)
+
+        # Industry benchmarks comparison
+        print("\n📈 Benchmark Comparison:")
+        if metrics["mrr"] >= 0.6:
+            print("  ✅ MRR: Good (>= 0.6)")
+        else:
+            print(f"  ⚠️  MRR: Needs improvement (< 0.6)")
+
+        if (
+            metrics["hit_rate"]["at_10" if "at_10" in metrics["hit_rate"] else "at_5"]
+            >= 0.8
+        ):
+            print("  ✅ Hit Rate: Good (>= 0.8)")
+        elif metrics["hit_rate"]["at_5"] >= 0.7:
+            print("  ⚠️  Hit Rate: Fair (>= 0.7)")
+        else:
+            print("  ❌ Hit Rate: Needs improvement (< 0.7)")
 
     except Exception as e:
-        print(f"Ragas evaluation failed: {e}")
+        logger.error(f"Metrics calculation failed: {e}")
+        import traceback
+
+        traceback.print_exc()
+        # Fallback to basic hit rate
+        metrics = {"error": str(e)}
 
     # 6. Save results
     output_dir = os.path.join(os.path.dirname(__file__), "results")
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, "retrieval_evaluation.json")
 
+    # Prepare comprehensive output
     output_data = {
-        "metrics": {
-            "exact_hit_rate": (
-                f"{hits}/{len(results)} ({hits/len(results)*100:.2f}%)"
-                if results
-                else "0%"
-            )
+        "metrics": (
+            metrics
+            if "error" not in metrics
+            else {
+                "error": metrics.get("error"),
+                "note": "Metrics calculation failed, see error above",
+            }
+        ),
+        "summary": {
+            "total_queries": len(results),
+            "dataset_used": "golden_dataset.json",
+            "retrieval_k": 3,
+            "embedding_model": (
+                config.BEDROCK_EMBEDDING_MODEL
+                if hasattr(config, "BEDROCK_EMBEDDING_MODEL")
+                else "default"
+            ),
         },
         "details": results,
     }
