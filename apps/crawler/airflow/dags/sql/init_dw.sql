@@ -44,7 +44,8 @@ CREATE TABLE IF NOT EXISTS fact_job_postings (
     experience_years FLOAT,
     source TEXT,
     url TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Bridge Table
