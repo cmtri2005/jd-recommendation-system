@@ -8,6 +8,7 @@ from sqlalchemy import create_engine
 import os
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
+from streamlit_autorefresh import st_autorefresh
 
 
 load_dotenv()
@@ -153,7 +154,7 @@ def get_db_connection():
         return None
 
 
-@st.cache_data(ttl=300)  # Cache for 5 minutes
+@st.cache_data(ttl=5)  # Cache for 5 seconds (reduced for more real-time updates)
 def load_data(query):
     """Load data from database with caching using SQLAlchemy"""
     engine = get_db_engine()
@@ -696,6 +697,11 @@ def get_company_industry_distribution(selected_sources=None, selected_locations=
 
 
 def main():
+    # Initialize session state for auto-refresh
+    if 'auto_refresh_enabled' not in st.session_state:
+        st.session_state['auto_refresh_enabled'] = False
+    if 'last_refresh' not in st.session_state:
+        st.session_state['last_refresh'] = datetime.now()
 
     st.title("📊 JD Analytics Dashboard")
     st.markdown("---")
@@ -762,10 +768,51 @@ def main():
         
         st.markdown("---")
         st.markdown("### 📊 Data Info")
-        st.caption("Data is cached for 5 minutes")
-        if st.button("🔄 Refresh Data"):
+        
+        # Initialize session state
+        if 'last_refresh' not in st.session_state:
+            st.session_state['last_refresh'] = datetime.now()
+        if 'auto_refresh_enabled' not in st.session_state:
+            st.session_state['auto_refresh_enabled'] = False
+        
+        # Auto-refresh toggle
+        auto_refresh = st.checkbox(
+            "🔄 Auto-refresh (5s)",
+            value=st.session_state['auto_refresh_enabled'],
+            help="Automatically refresh data every 5 seconds"
+        )
+        
+        # Update last_refresh when auto-refresh is first enabled
+        if auto_refresh and not st.session_state.get('auto_refresh_enabled', False):
+            st.session_state['last_refresh'] = datetime.now()
+        
+        st.session_state['auto_refresh_enabled'] = auto_refresh
+        
+        # Display last refresh time
+        last_refresh_time = st.session_state['last_refresh'].strftime('%H:%M:%S')
+        st.caption(f"Last refresh: {last_refresh_time}")
+        st.caption("Data cache: 5 seconds")
+        
+        # Refresh button
+        if st.button("🔄 Refresh Now"):
             st.cache_data.clear()
+            st.session_state['last_refresh'] = datetime.now()
             st.rerun()
+        
+        # Auto-refresh logic using streamlit-autorefresh
+        if auto_refresh:
+            # Use streamlit-autorefresh to auto-refresh every 5 seconds
+            count = st_autorefresh(interval=5000, limit=None, key="auto_refresh")
+            
+            # When autorefresh triggers (count > 0), clear cache and update last_refresh
+            if count > 0:
+                st.cache_data.clear()
+                st.session_state['last_refresh'] = datetime.now()
+            
+            # Show countdown (approximate)
+            time_since_refresh = (datetime.now() - st.session_state['last_refresh']).total_seconds()
+            time_until_refresh = max(0, 5 - time_since_refresh)
+            st.caption(f"⏱️ Next refresh in: ~{int(time_until_refresh)}s")
         
         st.markdown("---")
         st.markdown("### 📥 Export Data")
