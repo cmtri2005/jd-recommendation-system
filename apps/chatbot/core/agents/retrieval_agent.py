@@ -4,7 +4,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_aws import BedrockEmbeddings
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
-from schema.retrieval import Retrieval
+from schemas.retrieval import Retrieval
 from config.config import config
 from core.agents.base_agent import BaseAgent
 

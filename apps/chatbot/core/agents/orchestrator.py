@@ -1,16 +1,17 @@
 import os
-import operator
 import traceback
-from logging import Logger
-from typing import Any, Dict, TypedDict, Annotated, List
-from langgraph.graph import StateGraph, START, END
+import logging
 from langgraph.graph.state import CompiledStateGraph
+from langgraph.graph import StateGraph, START, END
+
+from core.agents.base_agent import BaseAgent
+from core.agents.state import State
 from core.agents.resume_extract_agent import ResumeExtractAgent
 from core.agents.jd_extract_agent import JDExtractAgent
 from core.agents.evaluation_agent import EvaluationAgent
 from core.agents.retrieval_agent import RetrievalAgent
 from core.factories.llm_factory import LLMFactory
-from core.agents.state import State, validate_state_paths
+from config.config import config
 
 from dotenv import load_dotenv
 
@@ -21,13 +22,14 @@ class Orchestrator:
     """Orchestrator class for manage langgraph"""
 
     def __init__(self):
-        self.logger = Logger("orchestrator")
-        model_name = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
-        api_key = os.environ.get("GROQ_API_KEY")
+        self.logger = logging.getLogger("orchestrator")
 
         self.llm = LLMFactory.create_llm(
-            llm_provider=LLMFactory.Provider.GROQ,
-            config=LLMFactory.LLMConfig(model_name=model_name, api_key=api_key),
+            llm_provider=LLMFactory.Provider.BEDROCK,
+            config=LLMFactory.LLMConfig(
+                model_name=config.BEDROCK_LLM_MODEL,
+                model_region=config.BEDROCK_MODEL_REGION,
+            ),
         )
         self.tools = ["docx_loader", "pdf_loader"]
         self.graph = None
@@ -44,12 +46,21 @@ class Orchestrator:
 
             # Define Node Wrappers
             def resume_node(state: State):
-                """Extract resume from file path in state."""
+                """Extract resume from file path or use existing text in state."""
                 try:
                     self.logger.info("Executing Resume Node")
+
+                    # Check if resume text already exists (from API)
+                    if state.get("resume_text"):
+                        self.logger.info("Using existing resume text from state")
+                        return {"resume_text": state["resume_text"]}
+
+                    # Otherwise extract from file path
                     resume_path = state.get("resume_path")
                     if not resume_path:
-                        raise ValueError("resume_path is missing in state")
+                        raise ValueError(
+                            "Neither resume_text nor resume_path provided in state"
+                        )
 
                     result = resume_extract_agent.extract_resume(resume_path)
                     return {"resume_text": result["resume"]}
@@ -60,12 +71,21 @@ class Orchestrator:
                     raise
 
             def jd_node(state: State):
-                """Extract job descriptions from file path in state."""
+                """Extract job descriptions from file path or use existing text in state."""
                 try:
                     self.logger.info("Executing JD Node")
+
+                    # Check if JD text already exists (from API)
+                    if state.get("jd_text"):
+                        self.logger.info("Using existing JD text from state")
+                        return {"jd_text": state["jd_text"]}
+
+                    # Otherwise extract from file path
                     jd_path = state.get("jd_path")
                     if not jd_path:
-                        raise ValueError("jd_path is missing in state")
+                        raise ValueError(
+                            "Neither jd_text nor jd_path provided in state"
+                        )
 
                     result = jd_extract_agent.extract_jd(jd_path)
                     jds = result.get("jds", [])

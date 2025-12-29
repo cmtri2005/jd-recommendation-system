@@ -33,26 +33,24 @@ export function Layout({ children, activeNav, onNavChange }: LayoutProps) {
         <nav className="flex-1 p-4 space-y-2">
           <button
             onClick={() => onNavChange("cv")}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-              activeNav === "cv"
-                ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                : "text-sidebar-foreground hover:bg-sidebar-accent"
-            }`}
+            className={`w-full flex items-center gap-3 px-5 py-3 rounded-lg transition-all text-left whitespace-nowrap ${activeNav === "cv"
+                ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm font-semibold"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:pl-6"
+              }`}
           >
-            <FileText className="w-5 h-5" />
-            <span className="font-medium">CV & Resume Matching</span>
+            <FileText className="w-5 h-5 shrink-0" />
+            <span>CV & Resume Matching</span>
           </button>
 
           <button
             onClick={() => onNavChange("dashboard")}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-              activeNav === "dashboard"
-                ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                : "text-sidebar-foreground hover:bg-sidebar-accent"
-            }`}
+            className={`w-full flex items-center gap-3 px-5 py-3 rounded-lg transition-all text-left whitespace-nowrap ${activeNav === "dashboard"
+                ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm font-semibold"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:pl-6"
+              }`}
           >
-            <BarChart3 className="w-5 h-5" />
-            <span className="font-medium">IT Jobs Trending</span>
+            <BarChart3 className="w-5 h-5 shrink-0" />
+            <span>IT Jobs Trending</span>
           </button>
         </nav>
 
