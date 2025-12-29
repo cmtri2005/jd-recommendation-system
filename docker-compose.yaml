@@ -1,7 +1,10 @@
 version: "3.9"
 
 x-airflow-common: &airflow-common
-  image: apache/airflow:2.9.0
+  build:
+    context: ./apps/crawler/airflow
+    dockerfile: Dockerfile
+  image: airflow-custom:2.9.0
   environment: &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
@@ -19,8 +22,12 @@ x-airflow-common: &airflow-common
     - ./apps/crawler/airflow/dags:/opt/airflow/dags
     - ./apps/crawler/airflow/logs:/opt/airflow/logs
     - ./apps/crawler/airflow/plugins:/opt/airflow/plugins
+    - ./apps/crawler/airflow/scripts:/opt/airflow/scripts
     - ./apps:/opt/airflow/apps
+    - ./apps/crawler:/opt/airflow/apps/crawler
     - ./.env:/opt/airflow/.env
+    - /var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket để chạy docker exec
+
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     postgres:
@@ -99,12 +106,13 @@ services:
     container_name: spark-master
     environment:
       SPARK_MODE: master
-    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.master.Master"]
+    command: ["/bin/bash", "-c", "mkdir -p /home/spark/.ivy2/cache && chown -R spark:spark /home/spark/.ivy2 && /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master"]
     ports:
       - "7077:7077"
-      - "8090:8080"
+      - "8088:8080"
     volumes:
-      - ./apps/crawler/spark:/opt/spark/jobs
+      - ./apps/crawler:/opt/spark/apps/crawler
+      - spark-ivy-cache:/home/spark/.ivy2  # Mount volume cho Ivy cache
       - spark-checkpoints:/tmp/spark-checkpoint-unified
 
   spark-worker:
@@ -115,10 +123,10 @@ services:
       SPARK_MASTER_URL: spark://spark-master:7077
     command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077"]
     volumes:
-      - ./apps/crawler/spark:/opt/spark/jobs
+      - ./apps/crawler:/opt/spark/apps/crawler
       - spark-checkpoints:/tmp/spark-checkpoint-unified
     depends_on:
-      - spark-master
+
 
 
   # ============================================================
@@ -167,3 +175,4 @@ services:
 volumes:
   pgdata:
   spark-checkpoints:
+  spark-ivy-cache:  # Volume cho Spark Ivy cache
