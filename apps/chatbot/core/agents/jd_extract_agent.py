@@ -3,7 +3,7 @@ from typing import Callable
 import traceback
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
-from schema.jd import JD, JDList
+from schemas.jd import JD, JDList
 from tools.document_loader import docx_loader, pdf_loader
 from core.factories.llm_factory import LLMFactory
 

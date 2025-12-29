@@ -11,7 +11,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from core.agents.evaluation_agent import EvaluationAgent
 from core.factories.llm_factory import LLMFactory
 from config.config import config
-from schema.evaluation import EvaluationResult
+from schemas.evaluation import EvaluationResult
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)

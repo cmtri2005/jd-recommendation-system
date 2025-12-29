@@ -1,7 +1,9 @@
 # Web framework
 streamlit==1.48.0
 fastapi==0.116.1
+uvicorn[standard]==0.34.0
 pydantic==2.10.6
+python-multipart==0.0.20
 
 # Langchain Ecosystem (Pinned Stable Versions)
 langchain-core==0.3.15
@@ -28,3 +30,7 @@ python-dotenv==1.1.1
 IPython
 ragas
 datasets
+
+# Visualize
+matplotlib==3.8.4
+

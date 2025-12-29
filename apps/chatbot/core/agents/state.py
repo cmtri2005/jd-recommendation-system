@@ -1,8 +1,8 @@
 import os
 import operator
 from typing import List, TypedDict, Annotated, Optional
-from schema.jd import JD
-from schema.resume import Resume
+from schemas.jd import JD
+from schemas.resume import Resume
 
 
 class State(TypedDict):
