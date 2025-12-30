@@ -124,11 +124,10 @@ services:
     command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077"]
     volumes:
       - ./apps/crawler/spark:/opt/spark/jobs
+      - ./apps/crawler:/opt/spark/apps/crawler
       - spark-checkpoints:/tmp/spark-checkpoint-unified
     depends_on:
       - spark-master
-    volumes:
-      - ./apps/crawler:/opt/spark/apps/crawler
 
 
   # ============================================================
