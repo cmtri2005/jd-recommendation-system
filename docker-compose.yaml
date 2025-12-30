@@ -126,7 +126,11 @@ services:
       - ./apps/crawler:/opt/spark/apps/crawler
       - spark-checkpoints:/tmp/spark-checkpoint-unified
     depends_on:
-
+      - ./apps/crawler/spark:/opt/spark/jobs
+      - ./apps/crawler:/opt/spark/apps/crawler
+      - spark-checkpoints:/tmp/spark-checkpoint-unified
+    depends_on:
+      - spark-master
 
 
   # ============================================================
