@@ -117,10 +117,18 @@ class Orchestrator:
                     raise
 
             def retrieval_node(state: State):
-                """Retrieve similar jobs from vector database."""
+                """Retrieve similar jobs from vector database with skill-based filtering."""
                 try:
                     self.logger.info("Executing Retrieval Node")
                     resume_text = state.get("resume_text")
+
+                    # Extract hard skills from resume for skill-based filtering
+                    resume_skills = []
+                    if hasattr(resume_text, "hard_skills") and resume_text.hard_skills:
+                        resume_skills = resume_text.hard_skills
+                        self.logger.info(
+                            f"Extracted {len(resume_skills)} hard skills from resume"
+                        )
 
                     # Build focused query from skills and summary for better matching
                     query_parts = []
@@ -148,8 +156,21 @@ class Orchestrator:
                         query_text = str(resume_text)
 
                     self.logger.info(f"Retrieval query: {query_text[:200]}...")
-                    retrieved = retrieval_agent.retrieve(query_text)
-                    return {"retrieved_jobs": retrieved}
+
+                    # Call retrieve with skill filtering (min 10% skill match)
+                    results = retrieval_agent.retrieve(
+                        query=query_text,
+                        k=5,
+                        resume_skills=resume_skills,
+                        min_skill_match=10.0,  # Require at least 10% skill match
+                    )
+
+                    # Format results for display
+                    formatted_results = retrieval_agent.format_results_for_display(
+                        results
+                    )
+
+                    return {"retrieved_jobs": formatted_results}
                 except Exception as e:
                     self.logger.error(
                         f"Retrieval node failed: {e}\n{traceback.format_exc()}"
@@ -165,10 +186,13 @@ class Orchestrator:
             builder.add_node("evaluation_agent", evaluation_node)
             builder.add_node("retrieval_agent", retrieval_node)
 
-            # Edges
+            # Edges - Parallel execution for resume and JD extraction (faster!)
             builder.add_edge(START, "resume_extract_agent")
-            builder.add_edge("resume_extract_agent", "jd_extract_agent")
-            builder.add_edge("jd_extract_agent", "evaluation_agent")
+            builder.add_edge(START, "jd_extract_agent")  # Run in parallel with resume
+            builder.add_edge("resume_extract_agent", "evaluation_agent")
+            builder.add_edge(
+                "jd_extract_agent", "evaluation_agent"
+            )  # Both feed into evaluation
             builder.add_edge("evaluation_agent", "retrieval_agent")
             builder.add_edge("retrieval_agent", END)
 
