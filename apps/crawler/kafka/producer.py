@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 import time
 from kafka import KafkaProducer, KafkaAdminClient
 from kafka.admin import NewTopic
@@ -72,6 +73,9 @@ def create_producer():
 
 
 def main():
+    # Check for --force or --resend flag
+    force_resend = "--force" in sys.argv or "--resend" in sys.argv
+    
     base_dir = os.path.dirname(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     )
@@ -96,9 +100,21 @@ def main():
     # Checkpoint file path
     checkpoint_file = os.path.join(base_dir, "crawler", "kafka", "processed_urls.txt")
     processed_urls = set()
-    if os.path.exists(checkpoint_file):
-        with open(checkpoint_file, "r", encoding="utf-8") as f:
-            processed_urls = set(line.strip() for line in f)
+    
+    # Checkpoint logic - Skip already sent records
+    if force_resend:
+        print("⚠️  FORCE/RESEND mode: Ignoring checkpoint, will send all records")
+        # Optionally clear checkpoint file
+        if os.path.exists(checkpoint_file):
+            print(f"Clearing checkpoint file: {checkpoint_file}")
+            os.remove(checkpoint_file)
+    else:
+        if os.path.exists(checkpoint_file):
+            with open(checkpoint_file, "r", encoding="utf-8") as f:
+                processed_urls = set(line.strip() for line in f)
+            print(f"Loaded {len(processed_urls)} processed URLs from checkpoint")
+        else:
+            print("No checkpoint file found - will send all records")
 
     # 1. Create Topics explicitly
     create_topics()
@@ -118,14 +134,19 @@ def main():
         elif isinstance(topcv_raw, list):
             topcv_list = topcv_raw
 
-        # Filter new
-        topcv_to_send = [
-            job for job in topcv_list if job.get("url") not in processed_urls
-        ]
-
-        print(
-            f"Sending {len(topcv_to_send)} NEW records (out of {len(topcv_list)}) to 'raw_topcv'..."
-        )
+        # Filter based on checkpoint
+        if force_resend:
+            topcv_to_send = topcv_list
+            print(
+                f"Sending {len(topcv_to_send)} records (FORCE mode - all records) to 'raw_topcv'..."
+            )
+        else:
+            topcv_to_send = [
+                job for job in topcv_list if job.get("url") not in processed_urls
+            ]
+            print(
+                f"Sending {len(topcv_to_send)} NEW records (out of {len(topcv_list)}) to 'raw_topcv'..."
+            )
         for item in topcv_to_send:
             producer.send("raw_topcv", value=item)
             if item.get("url"):
@@ -141,14 +162,19 @@ def main():
         print(f"Reading ITViec file from {itviec_path}...")
         itviec_list = load_jsonl(itviec_path)
 
-        # Filter new
-        itviec_to_send = [
-            job for job in itviec_list if job.get("url") not in processed_urls
-        ]
-
-        print(
-            f"Sending {len(itviec_to_send)} NEW records (out of {len(itviec_list)}) to 'raw_itviec'..."
-        )
+        # Filter based on checkpoint
+        if force_resend:
+            itviec_to_send = itviec_list
+            print(
+                f"Sending {len(itviec_to_send)} records (FORCE mode - all records) to 'raw_itviec'..."
+            )
+        else:
+            itviec_to_send = [
+                job for job in itviec_list if job.get("url") not in processed_urls
+            ]
+            print(
+                f"Sending {len(itviec_to_send)} NEW records (out of {len(itviec_list)}) to 'raw_itviec'..."
+            )
         for item in itviec_to_send:
             producer.send("raw_itviec", value=item)
             if item.get("url"):
@@ -166,7 +192,9 @@ def main():
         with open(checkpoint_file, "a", encoding="utf-8") as f:
             for url in new_urls:
                 f.write(url + "\n")
-        print(f"Updated checkpoint with {len(new_urls)} new URLs.")
+        print(f"✅ Updated checkpoint with {len(new_urls)} new URLs.")
+    else:
+        print("ℹ️  No new URLs to save to checkpoint.")
 
 
 if __name__ == "__main__":

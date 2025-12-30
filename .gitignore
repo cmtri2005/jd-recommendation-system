@@ -213,4 +213,18 @@ marimo/_lsp/
 __marimo__/
 
 # Streamlit
+.streamlit/
 .streamlit/secrets.toml
+
+# Environment files
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
