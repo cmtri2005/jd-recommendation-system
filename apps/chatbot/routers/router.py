@@ -5,6 +5,9 @@ from typing import List, Optional
 import logging
 import tempfile
 import os
+import hashlib
+import time
+from functools import lru_cache
 
 from core.agents.orchestrator import Orchestrator
 from services.learning_resources_service import get_learning_resources_service
@@ -21,6 +24,35 @@ logger = logging.getLogger(__name__)
 
 # Create router
 router = APIRouter()
+
+# Simple cache for evaluation results (TTL: 1 hour)
+EVAL_CACHE = {}
+CACHE_TTL = 3600
+
+
+def get_cache_key(resume_text: str, jd_text: str) -> str:
+    """Generate cache key from resume and JD text."""
+    combined = f"{resume_text[:500]}||{jd_text[:500]}"
+    return hashlib.md5(combined.encode()).hexdigest()
+
+
+def get_cached_result(cache_key: str):
+    """Get cached result if not expired."""
+    if cache_key in EVAL_CACHE:
+        cached_data, timestamp = EVAL_CACHE[cache_key]
+        if time.time() - timestamp < CACHE_TTL:
+            logger.info(f"✅ Cache HIT for key: {cache_key[:8]}...")
+            return cached_data
+        else:
+            # Expired, remove from cache
+            del EVAL_CACHE[cache_key]
+    return None
+
+
+def set_cached_result(cache_key: str, result):
+    """Store result in cache with timestamp."""
+    EVAL_CACHE[cache_key] = (result, time.time())
+    logger.info(f"💾 Cached result for key: {cache_key[:8]}...")
 
 
 @router.get("/api/health")
@@ -102,6 +134,13 @@ async def evaluate_resume(
 
         logger.info(f"JD extracted: {len(jd_text)} characters")
 
+        # Check cache first
+        cache_key = get_cache_key(resume_text, jd_text)
+        cached_result = get_cached_result(cache_key)
+
+        if cached_result:
+            return cached_result
+
         # Initialize orchestrator
         orchestrator = Orchestrator()
         graph = orchestrator.orchestrate()
@@ -152,6 +191,10 @@ async def evaluate_resume(
         )
 
         logger.info(f"Evaluation complete: Score={eval_result.total_score}/100")
+
+        # Cache the result
+        set_cached_result(cache_key, response)
+
         return response
 
     except HTTPException:

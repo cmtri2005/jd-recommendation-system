@@ -505,14 +505,22 @@ export function CVResume() {
                 </CardHeader>
                 <CardContent className="grid gap-4 md:grid-cols-2">
                   {evaluation.retrieved_jobs.map((jobStr, idx) => {
-                    // Quick parsing of the formatted string
-                    const scoreMatch = jobStr.match(/Match Score: ([\d.]+)%/);
+                    // Parse the new hybrid score format
+                    const hybridMatch = jobStr.match(/Hybrid Score: ([\d.]+)%/);
+                    const vectorMatch = jobStr.match(/Vector: ([\d.]+)%/);
+                    const skillsMatch = jobStr.match(/Skills: ([\d.]+)%/);
                     const titleMatch = jobStr.match(/Title: (.*?)\n/);
                     const sourceMatch = jobStr.match(/Source: (.*?)\n/);
+                    const matchedSkillsMatch = jobStr.match(/✓ Matched Skills: (.*?)\n/);
+                    const missingSkillsMatch = jobStr.match(/✗ Missing Skills: (.*?)\n/);
 
-                    const score = scoreMatch ? parseFloat(scoreMatch[1]) : 0;
+                    const hybridScore = hybridMatch ? parseFloat(hybridMatch[1]) : 0;
+                    const vectorScore = vectorMatch ? parseFloat(vectorMatch[1]) : 0;
+                    const skillScore = skillsMatch ? parseFloat(skillsMatch[1]) : 0;
                     const title = titleMatch ? titleMatch[1] : "Unknown Position";
                     const source = sourceMatch ? sourceMatch[1] : "#";
+                    const matchedSkills = matchedSkillsMatch ? matchedSkillsMatch[1] : "";
+                    const missingSkills = missingSkillsMatch ? missingSkillsMatch[1] : "";
 
                     return (
                       <div key={idx} className="flex flex-col p-4 bg-white rounded-xl border-2 border-indigo-100 hover:border-indigo-300 hover:shadow-md transition-all group">
@@ -523,20 +531,45 @@ export function CVResume() {
                             </h4>
                           </div>
                           <Badge variant="outline" className="bg-indigo-50 text-indigo-700 border-indigo-200 shrink-0">
-                            {score.toFixed(0)}% Match
+                            {hybridScore.toFixed(0)}% Match
                           </Badge>
                         </div>
 
-                        <div className="mb-4 space-y-2 flex-1">
+                        {/* Score breakdown */}
+                        <div className="mb-3 space-y-2 flex-1">
+                          {/* Hybrid score bar */}
                           <div className="h-2 bg-muted rounded-full overflow-hidden">
                             <div
-                              className="h-full bg-indigo-500 rounded-full"
-                              style={{ width: `${score}%` }}
+                              className="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full"
+                              style={{ width: `${hybridScore}%` }}
                             />
                           </div>
-                          <p className="text-xs text-muted-foreground">
-                            Matched based on skills & experience
-                          </p>
+
+
+                          {/* Score details - simplified */}
+                          <div className="flex gap-3 text-xs">
+                            <span className="text-muted-foreground" title="Semantic similarity">
+                              Vector: {vectorScore.toFixed(0)}%
+                            </span>
+                          </div>
+
+                          {/* Matched skills */}
+                          {matchedSkills && (
+                            <div className="flex items-start gap-1.5 text-xs">
+                              <span className="text-green-700 leading-relaxed">
+                                {matchedSkills}
+                              </span>
+                            </div>
+                          )}
+
+                          {/* Missing skills */}
+                          {missingSkills && (
+                            <div className="flex items-start gap-1.5 text-xs">
+                              <span className="text-orange-700 leading-relaxed">
+                                Missing: {missingSkills}
+                              </span>
+                            </div>
+                          )}
                         </div>
 
                         <a

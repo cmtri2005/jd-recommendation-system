@@ -8,8 +8,6 @@ load_dotenv()
 
 from embed_and_store import DocumentEmbedder
 
-
-DATA_PATH = "../crawler/data/jobs_raw.jsonl"
 COLLECTION_NAME = "rag-jd-rcm"
 PERSIST_DIRECTORY = "../chatbot/infra/vector_stores/storage"
 
@@ -21,7 +19,7 @@ def main():
 
     print("\nLoading and chunking documents...")
     loader = LoadData()
-    docs = loader.load_data(path=DATA_PATH)
+    docs = loader.load_all_data()
     print(f"Successfully loaded {len(docs)} documents")
 
     print("\nCreating embeddings and storing in vector database...")

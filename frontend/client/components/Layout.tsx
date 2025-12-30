@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Moon, Sun, FileText, BarChart3 } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -13,7 +13,7 @@ export function Layout({ children, activeNav, onNavChange }: LayoutProps) {
   const [mounted, setMounted] = useState(false);
 
   // Only render theme toggle after hydration
-  useState(() => {
+  useEffect(() => {
     setMounted(true);
   }, []);
 
@@ -34,8 +34,8 @@ export function Layout({ children, activeNav, onNavChange }: LayoutProps) {
           <button
             onClick={() => onNavChange("cv")}
             className={`w-full flex items-center gap-3 px-5 py-3 rounded-lg transition-all text-left whitespace-nowrap ${activeNav === "cv"
-                ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm font-semibold"
-                : "text-sidebar-foreground hover:bg-sidebar-accent hover:pl-6"
+              ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm font-semibold"
+              : "text-sidebar-foreground hover:bg-sidebar-accent hover:pl-6"
               }`}
           >
             <FileText className="w-5 h-5 shrink-0" />
@@ -45,8 +45,8 @@ export function Layout({ children, activeNav, onNavChange }: LayoutProps) {
           <button
             onClick={() => onNavChange("dashboard")}
             className={`w-full flex items-center gap-3 px-5 py-3 rounded-lg transition-all text-left whitespace-nowrap ${activeNav === "dashboard"
-                ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm font-semibold"
-                : "text-sidebar-foreground hover:bg-sidebar-accent hover:pl-6"
+              ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm font-semibold"
+              : "text-sidebar-foreground hover:bg-sidebar-accent hover:pl-6"
               }`}
           >
             <BarChart3 className="w-5 h-5 shrink-0" />

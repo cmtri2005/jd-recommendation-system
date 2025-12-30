@@ -161,14 +161,10 @@ class EvaluationResult(BaseModel):
         """Ensure recommendation aligns with score threshold."""
         if "total_score" in info.data:
             score = info.data["total_score"]
-            if score >= 70 and v != "suitable":
-                raise ValueError(
-                    f"Score {score} >= 70 but recommendation is '{v}' (should be 'suitable')"
-                )
-            if score < 70 and v != "not_suitable":
-                raise ValueError(
-                    f"Score {score} < 70 but recommendation is '{v}' (should be 'not_suitable')"
-                )
+            if score >= 60 and v != "suitable":
+                return "suitable"
+            if score < 60 and v != "not_suitable":
+                return "not_suitable"
         return v
 
     def format_display(self) -> str:
