@@ -1,5 +1,8 @@
+-- Drop table if exists (to ensure clean state)
+DROP TABLE IF EXISTS unified_jobs CASCADE;
+
 -- Create unified_jobs table (staging table for unified job data from TopCV and ITViec)
-CREATE TABLE IF NOT EXISTS unified_jobs (
+CREATE TABLE unified_jobs (
     job_id TEXT PRIMARY KEY, -- SHA256 hash of URL
     source TEXT NOT NULL, -- 'TopCV' or 'ITViec'
     url TEXT UNIQUE NOT NULL,
