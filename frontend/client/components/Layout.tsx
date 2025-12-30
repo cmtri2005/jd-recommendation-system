@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Moon, Sun, FileText, BarChart3 } from "lucide-react";
 import { useTheme } from "next-themes";
 
 interface LayoutProps {
   children: React.ReactNode;
-  activeNav: "cv" | "dashboard";
-  onNavChange: (nav: "cv" | "dashboard") => void;
 }
 
-export function Layout({ children, activeNav, onNavChange }: LayoutProps) {
+export function Layout({ children }: LayoutProps) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const location = useLocation();
+
+  // Determine active nav based on current path
+  const activeNav = location.pathname === "/dashboard" ? "dashboard" : "cv";
 
   // Only render theme toggle after hydration
   useEffect(() => {
@@ -31,8 +34,8 @@ export function Layout({ children, activeNav, onNavChange }: LayoutProps) {
 
         {/* Navigation */}
         <nav className="flex-1 p-4 space-y-2">
-          <button
-            onClick={() => onNavChange("cv")}
+          <Link
+            to="/"
             className={`w-full flex items-center gap-3 px-5 py-3 rounded-lg transition-all text-left whitespace-nowrap ${activeNav === "cv"
               ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm font-semibold"
               : "text-sidebar-foreground hover:bg-sidebar-accent hover:pl-6"
@@ -40,10 +43,10 @@ export function Layout({ children, activeNav, onNavChange }: LayoutProps) {
           >
             <FileText className="w-5 h-5 shrink-0" />
             <span>CV & Resume Matching</span>
-          </button>
+          </Link>
 
-          <button
-            onClick={() => onNavChange("dashboard")}
+          <Link
+            to="/dashboard"
             className={`w-full flex items-center gap-3 px-5 py-3 rounded-lg transition-all text-left whitespace-nowrap ${activeNav === "dashboard"
               ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm font-semibold"
               : "text-sidebar-foreground hover:bg-sidebar-accent hover:pl-6"
@@ -51,7 +54,7 @@ export function Layout({ children, activeNav, onNavChange }: LayoutProps) {
           >
             <BarChart3 className="w-5 h-5 shrink-0" />
             <span>IT Jobs Trending</span>
-          </button>
+          </Link>
         </nav>
 
         {/* Theme Toggle */}
