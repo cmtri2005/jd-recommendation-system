@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import logging
 
 from routers.router import router
+from routers.dashboard import router as dashboard_router
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -28,6 +29,7 @@ app.add_middleware(
 
 # Include routers
 app.include_router(router)
+app.include_router(dashboard_router)
 
 
 if __name__ == "__main__":
