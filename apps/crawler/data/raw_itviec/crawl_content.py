@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from contextlib import closing
 
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(message)s")
 
 

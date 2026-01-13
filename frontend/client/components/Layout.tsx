@@ -1,19 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Moon, Sun, FileText, BarChart3 } from "lucide-react";
 import { useTheme } from "next-themes";
 
 interface LayoutProps {
   children: React.ReactNode;
-  activeNav: "cv" | "dashboard";
-  onNavChange: (nav: "cv" | "dashboard") => void;
 }
 
-export function Layout({ children, activeNav, onNavChange }: LayoutProps) {
+export function Layout({ children }: LayoutProps) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const location = useLocation();
+
+  // Determine active nav based on current path
+  const activeNav = location.pathname === "/dashboard" ? "dashboard" : "cv";
 
   // Only render theme toggle after hydration
-  useState(() => {
+  useEffect(() => {
     setMounted(true);
   }, []);
 
@@ -31,29 +34,27 @@ export function Layout({ children, activeNav, onNavChange }: LayoutProps) {
 
         {/* Navigation */}
         <nav className="flex-1 p-4 space-y-2">
-          <button
-            onClick={() => onNavChange("cv")}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-              activeNav === "cv"
-                ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                : "text-sidebar-foreground hover:bg-sidebar-accent"
-            }`}
+          <Link
+            to="/"
+            className={`w-full flex items-center gap-3 px-5 py-3 rounded-lg transition-all text-left whitespace-nowrap ${activeNav === "cv"
+              ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm font-semibold"
+              : "text-sidebar-foreground hover:bg-sidebar-accent hover:pl-6"
+              }`}
           >
-            <FileText className="w-5 h-5" />
-            <span className="font-medium">CV & Resume Matching</span>
-          </button>
+            <FileText className="w-5 h-5 shrink-0" />
+            <span>CV & Resume Matching</span>
+          </Link>
 
-          <button
-            onClick={() => onNavChange("dashboard")}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-              activeNav === "dashboard"
-                ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                : "text-sidebar-foreground hover:bg-sidebar-accent"
-            }`}
+          <Link
+            to="/dashboard"
+            className={`w-full flex items-center gap-3 px-5 py-3 rounded-lg transition-all text-left whitespace-nowrap ${activeNav === "dashboard"
+              ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm font-semibold"
+              : "text-sidebar-foreground hover:bg-sidebar-accent hover:pl-6"
+              }`}
           >
-            <BarChart3 className="w-5 h-5" />
-            <span className="font-medium">IT Jobs Trending</span>
-          </button>
+            <BarChart3 className="w-5 h-5 shrink-0" />
+            <span>IT Jobs Trending</span>
+          </Link>
         </nav>
 
         {/* Theme Toggle */}

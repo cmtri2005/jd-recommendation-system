@@ -1,16 +1,17 @@
 import os
-import operator
 import traceback
-from logging import Logger
-from typing import Any, Dict, TypedDict, Annotated, List
-from langgraph.graph import StateGraph, START, END
+import logging
 from langgraph.graph.state import CompiledStateGraph
+from langgraph.graph import StateGraph, START, END
+
+from core.agents.base_agent import BaseAgent
+from core.agents.state import State
 from core.agents.resume_extract_agent import ResumeExtractAgent
 from core.agents.jd_extract_agent import JDExtractAgent
 from core.agents.evaluation_agent import EvaluationAgent
 from core.agents.retrieval_agent import RetrievalAgent
 from core.factories.llm_factory import LLMFactory
-from core.agents.state import State, validate_state_paths
+from config.config import config
 
 from dotenv import load_dotenv
 
@@ -21,13 +22,14 @@ class Orchestrator:
     """Orchestrator class for manage langgraph"""
 
     def __init__(self):
-        self.logger = Logger("orchestrator")
-        model_name = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
-        api_key = os.environ.get("GROQ_API_KEY")
+        self.logger = logging.getLogger("orchestrator")
 
         self.llm = LLMFactory.create_llm(
-            llm_provider=LLMFactory.Provider.GROQ,
-            config=LLMFactory.LLMConfig(model_name=model_name, api_key=api_key),
+            llm_provider=LLMFactory.Provider.BEDROCK,
+            config=LLMFactory.LLMConfig(
+                model_name=config.BEDROCK_LLM_MODEL,
+                model_region=config.BEDROCK_MODEL_REGION,
+            ),
         )
         self.tools = ["docx_loader", "pdf_loader"]
         self.graph = None
@@ -44,12 +46,21 @@ class Orchestrator:
 
             # Define Node Wrappers
             def resume_node(state: State):
-                """Extract resume from file path in state."""
+                """Extract resume from file path or use existing text in state."""
                 try:
                     self.logger.info("Executing Resume Node")
+
+                    # Check if resume text already exists (from API)
+                    if state.get("resume_text"):
+                        self.logger.info("Using existing resume text from state")
+                        return {"resume_text": state["resume_text"]}
+
+                    # Otherwise extract from file path
                     resume_path = state.get("resume_path")
                     if not resume_path:
-                        raise ValueError("resume_path is missing in state")
+                        raise ValueError(
+                            "Neither resume_text nor resume_path provided in state"
+                        )
 
                     result = resume_extract_agent.extract_resume(resume_path)
                     return {"resume_text": result["resume"]}
@@ -60,12 +71,21 @@ class Orchestrator:
                     raise
 
             def jd_node(state: State):
-                """Extract job descriptions from file path in state."""
+                """Extract job descriptions from file path or use existing text in state."""
                 try:
                     self.logger.info("Executing JD Node")
+
+                    # Check if JD text already exists (from API)
+                    if state.get("jd_text"):
+                        self.logger.info("Using existing JD text from state")
+                        return {"jd_text": state["jd_text"]}
+
+                    # Otherwise extract from file path
                     jd_path = state.get("jd_path")
                     if not jd_path:
-                        raise ValueError("jd_path is missing in state")
+                        raise ValueError(
+                            "Neither jd_text nor jd_path provided in state"
+                        )
 
                     result = jd_extract_agent.extract_jd(jd_path)
                     jds = result.get("jds", [])
@@ -97,10 +117,18 @@ class Orchestrator:
                     raise
 
             def retrieval_node(state: State):
-                """Retrieve similar jobs from vector database."""
+                """Retrieve similar jobs from vector database with skill-based filtering."""
                 try:
                     self.logger.info("Executing Retrieval Node")
                     resume_text = state.get("resume_text")
+
+                    # Extract hard skills from resume for skill-based filtering
+                    resume_skills = []
+                    if hasattr(resume_text, "hard_skills") and resume_text.hard_skills:
+                        resume_skills = resume_text.hard_skills
+                        self.logger.info(
+                            f"Extracted {len(resume_skills)} hard skills from resume"
+                        )
 
                     # Build focused query from skills and summary for better matching
                     query_parts = []
@@ -128,8 +156,21 @@ class Orchestrator:
                         query_text = str(resume_text)
 
                     self.logger.info(f"Retrieval query: {query_text[:200]}...")
-                    retrieved = retrieval_agent.retrieve(query_text)
-                    return {"retrieved_jobs": retrieved}
+
+                    # Call retrieve with skill filtering (min 10% skill match)
+                    results = retrieval_agent.retrieve(
+                        query=query_text,
+                        k=5,
+                        resume_skills=resume_skills,
+                        min_skill_match=10.0,  # Require at least 10% skill match
+                    )
+
+                    # Format results for display
+                    formatted_results = retrieval_agent.format_results_for_display(
+                        results
+                    )
+
+                    return {"retrieved_jobs": formatted_results}
                 except Exception as e:
                     self.logger.error(
                         f"Retrieval node failed: {e}\n{traceback.format_exc()}"
@@ -145,10 +186,13 @@ class Orchestrator:
             builder.add_node("evaluation_agent", evaluation_node)
             builder.add_node("retrieval_agent", retrieval_node)
 
-            # Edges
+            # Edges - Parallel execution for resume and JD extraction (faster!)
             builder.add_edge(START, "resume_extract_agent")
-            builder.add_edge("resume_extract_agent", "jd_extract_agent")
-            builder.add_edge("jd_extract_agent", "evaluation_agent")
+            builder.add_edge(START, "jd_extract_agent")  # Run in parallel with resume
+            builder.add_edge("resume_extract_agent", "evaluation_agent")
+            builder.add_edge(
+                "jd_extract_agent", "evaluation_agent"
+            )  # Both feed into evaluation
             builder.add_edge("evaluation_agent", "retrieval_agent")
             builder.add_edge("retrieval_agent", END)
 

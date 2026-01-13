@@ -11,6 +11,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from core.agents.evaluation_agent import EvaluationAgent
 from core.factories.llm_factory import LLMFactory
 from config.config import config
+from schemas.evaluation import EvaluationResult
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
@@ -20,28 +21,6 @@ logger = logging.getLogger(__name__)
 def load_golden_dataset(path: str) -> List[Dict]:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
-
-
-def extract_score(response_text: str) -> int:
-    """Heuristic to extract score from agent output."""
-    try:
-        # Simple extraction logic: look for "Total score" line
-        lines = response_text.split("\n")
-        for line in lines:
-            if "total score" in line.lower():
-                # Extract digits
-                digits = [int(s) for s in line.split() if s.isdigit()]
-                if digits:
-                    return digits[0]
-        # Fallback: naive search for any 2digit number
-        import re
-
-        matches = re.findall(r"\b\d{2,3}\b", response_text)
-        if matches:
-            return int(matches[0])
-    except:
-        pass
-    return 0
 
 
 def load_cache(path: str) -> Dict[str, Dict]:
@@ -110,40 +89,71 @@ def main():
 
             # Test Positive
             print(f"Testing Positive Match for {job_title}...")
-            pos_score = 0
+            pos_result = None
             try:
-                pos_res = agent.evaluate(item["positive_resume"], jd)
-                pos_score = extract_score(pos_res)
+                pos_result = agent.evaluate(item["positive_resume"], jd)
+                logger.info(
+                    f"Positive eval: {pos_result.total_score}/100 "
+                    f"(Hard Skills: {pos_result.score_breakdown.hard_skills_score}/30)"
+                )
             except Exception as e:
-                print(f"Error evaluating positive: {e}")
+                logger.error(f"Error evaluating positive: {e}")
+                pos_result = None
 
             # Delay between positive and negative
             time.sleep(2)
 
             # Test Negative
             print(f"Testing Negative Match for {job_title}...")
-            neg_score = 0
+            neg_result = None
             try:
-                neg_res = agent.evaluate(item["negative_resume"], jd)
-                neg_score = extract_score(neg_res)
+                neg_result = agent.evaluate(item["negative_resume"], jd)
+                logger.info(
+                    f"Negative eval: {neg_result.total_score}/100 "
+                    f"(Hard Skills: {neg_result.score_breakdown.hard_skills_score}/30)"
+                )
             except Exception as e:
-                print(f"Error evaluating negative: {e}")
+                logger.error(f"Error evaluating negative: {e}")
+                neg_result = None
 
-            success = pos_score > 70 and neg_score < 70
+            # Calculate success
+            if pos_result and neg_result:
+                pos_score = pos_result.total_score
+                neg_score = neg_result.total_score
+                success = pos_score > 70 and neg_score < 70
 
-            result_entry = {
-                "job": job_title,
-                "pos_score": pos_score,
-                "neg_score": neg_score,
-                "success": success,
-            }
+                result_entry = {
+                    "job": job_title,
+                    "pos_score": pos_score,
+                    "neg_score": neg_score,
+                    "success": success,
+                    "pos_breakdown": pos_result.score_breakdown.model_dump(),
+                    "neg_breakdown": neg_result.score_breakdown.model_dump(),
+                    "pos_recommendation": pos_result.recommendation,
+                    "neg_recommendation": neg_result.recommendation,
+                    "missing_skills": [
+                        skill.model_dump() for skill in pos_result.missing_hard_skills
+                    ],
+                    "pos_summary": pos_result.summary,
+                    "neg_summary": neg_result.summary,
+                }
+            else:
+                # Fallback for errors
+                result_entry = {
+                    "job": job_title,
+                    "pos_score": pos_result.total_score if pos_result else 0,
+                    "neg_score": neg_result.total_score if neg_result else 0,
+                    "success": False,
+                    "error": "Evaluation failed",
+                }
 
             results.append(result_entry)
             cache[job_title] = result_entry
             batch_modified = True
 
             print(
-                f"   -> Result: Positive={pos_score}, Negative={neg_score} | Pass: {success}"
+                f"   -> Result: Positive={result_entry['pos_score']}, "
+                f"Negative={result_entry['neg_score']} | Pass: {result_entry['success']}"
             )
 
         # Save cache after each batch if there were changes
@@ -156,20 +166,57 @@ def main():
             time.sleep(BATCH_DELAY)
 
     # Summary
-    pass_count = sum(1 for r in results if r["success"])
+    pass_count = sum(1 for r in results if r.get("success", False))
     print("\n" + "=" * 30)
     print(
-        f"Recommendation Accuracy: {pass_count}/{len(results)} ({pass_count/len(results)*100:.1f}%)"
+        f"Recommendation Accuracy: {pass_count}/{len(results)} "
+        f"({pass_count/len(results)*100:.1f}%)"
     )
     print("=" * 30)
 
+    # Detailed Analysis
+    print("\n📊 Detailed Analysis:")
+
+    # Score distribution
+    pos_scores = [r["pos_score"] for r in results if "pos_score" in r]
+    neg_scores = [r["neg_score"] for r in results if "neg_score" in r]
+
+    if pos_scores:
+        print(
+            f"\nPositive Scores: Avg={sum(pos_scores)/len(pos_scores):.1f}, "
+            f"Min={min(pos_scores)}, Max={max(pos_scores)}"
+        )
+    if neg_scores:
+        print(
+            f"Negative Scores: Avg={sum(neg_scores)/len(neg_scores):.1f}, "
+            f"Min={min(neg_scores)}, Max={max(neg_scores)}"
+        )
+
+    # Most common missing skills
+    all_missing_skills = []
+    for r in results:
+        if "missing_skills" in r:
+            all_missing_skills.extend([s["skill_name"] for s in r["missing_skills"]])
+
+    if all_missing_skills:
+        from collections import Counter
+
+        skill_counts = Counter(all_missing_skills)
+        print("\n🎯 Top 5 Most Common Missing Skills:")
+        for skill, count in skill_counts.most_common(5):
+            print(f"  - {skill}: {count} times")
+
     # Save Report
-    report_path = os.path.join(
-        os.path.dirname(__file__), "..", "evaluation_report.json"
-    )
-    with open(report_path, "w") as f:
-        json.dump(results, f, indent=2)
-    print(f"Full report saved to {report_path}")
+    output_path = os.path.join(base_dir, "results", "evaluation_report.json")
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+    print(f"\n✅ Full report saved to {output_path}")
+
+
+if __name__ == "__main__":
+    main()
 
 
 if __name__ == "__main__":

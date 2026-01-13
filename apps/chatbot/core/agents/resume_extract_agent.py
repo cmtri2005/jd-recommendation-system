@@ -3,7 +3,7 @@ from typing import Callable
 import traceback
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
-from schema.resume import Resume
+from schemas.resume import Resume
 from tools.document_loader import docx_loader, pdf_loader
 from core.factories.llm_factory import LLMFactory
 
@@ -24,7 +24,10 @@ class ResumeExtractAgent(BaseAgent):
                         Your task is to analyze the resume between triple backticks and extract structured information from it.
                         Ignore any personal information such as address, email, phone, v.v.
                         If the resume is not provided, return 'EMPTY'.
+                        
+                        IMPORTANT: Generate ALL extracted text in Vietnamese language.
                     """,
+
                 ),
                 (
                     "user",
