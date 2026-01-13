@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, BookOpen, CheckCircle2 } from "lucide-react";
+import { ExternalLink, BookOpen, CheckCircle2, GraduationCap } from "lucide-react";
 
 interface LearningResource {
   title: string;
@@ -10,6 +10,12 @@ interface LearningResource {
   difficulty: string;
   type: string;
   verified: boolean;
+}
+
+interface UITCourse {
+  courseName: string;
+  department: string;
+  major: string;
 }
 
 interface LearningResourceCardProps {
@@ -44,6 +50,33 @@ export function LearningResourceCard({ resource }: LearningResourceCardProps) {
   );
 }
 
+interface UITCourseCardProps {
+  course: UITCourse;
+}
+
+export function UITCourseCard({ course }: UITCourseCardProps) {
+  return (
+    <Card className="h-full border border-muted hover:border-blue-300 hover:shadow-sm transition-all duration-200 bg-gradient-to-br from-blue-50/50 to-white">
+      <CardContent className="p-4 flex items-start gap-3">
+        <div className="mt-1">
+          <GraduationCap className="h-5 w-5 text-blue-600" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <h4 className="font-medium text-foreground line-clamp-2 leading-tight">
+            {course.courseName}
+          </h4>
+          <p className="text-sm text-muted-foreground mt-1">
+            {course.department}
+          </p>
+          <p className="text-xs text-blue-700 mt-0.5">
+            Ngành: {course.major}
+          </p>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 interface SkillGapWithResourcesProps {
   skillName: string;
   importance: 'critical' | 'important' | 'nice-to-have';
@@ -55,9 +88,9 @@ export function SkillGapWithResources({
   importance,
   learningResources
 }: SkillGapWithResourcesProps) {
-  const parseResource = (resourceStr: string): LearningResource | null => {
-    // Format: "Title - Organization (URL)"
-    const match = resourceStr.match(/^(.+?)\s*-\s*(.+?)\s*\((.+?)\)$/);
+  const parseOnlineResource = (resourceStr: string): LearningResource | null => {
+    // Format: "[Online] Title - Organization (URL)"
+    const match = resourceStr.match(/^\[Online\]\s*(.+?)\s*-\s*(.+?)\s*\((.+?)\)$/);
     if (!match) return null;
 
     return {
@@ -68,6 +101,18 @@ export function SkillGapWithResources({
       difficulty: "Unknown",
       type: "Course",
       verified: true
+    };
+  };
+
+  const parseUITCourse = (resourceStr: string): UITCourse | null => {
+    // Format: "[UIT] CourseName - Department (Ngành: Major)"
+    const match = resourceStr.match(/^\[UIT\]\s*(.+?)\s*-\s*(.+?)\s*\(Ngành:\s*(.+?)\)$/);
+    if (!match) return null;
+
+    return {
+      courseName: match[1].trim(),
+      department: match[2].trim(),
+      major: match[3].trim()
     };
   };
 
@@ -82,14 +127,20 @@ export function SkillGapWithResources({
     }
   };
 
-  const resources = learningResources
-    .map(parseResource)
+  // Separate online and UIT resources
+  const onlineResources = learningResources
+    .map(parseOnlineResource)
     .filter((r): r is LearningResource => r !== null);
 
-  if (resources.length === 0) return null;
+  const uitCourses = learningResources
+    .map(parseUITCourse)
+    .filter((c): c is UITCourse => c !== null);
+
+  // If no resources at all, don't render
+  if (onlineResources.length === 0 && uitCourses.length === 0) return null;
 
   return (
-    <div className="space-y-3 pt-2">
+    <div className="space-y-4 pt-2">
       <div className="flex items-center gap-3">
         <h3 className="text-lg font-semibold flex items-center gap-2">
           {skillName}
@@ -99,11 +150,35 @@ export function SkillGapWithResources({
         </Badge>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2">
-        {resources.map((resource, idx) => (
-          <LearningResourceCard key={idx} resource={resource} />
-        ))}
-      </div>
+      {/* Online Courses Section */}
+      {onlineResources.length > 0 && (
+        <div className="space-y-2">
+          <h4 className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+            <BookOpen className="h-4 w-4" />
+            Online Courses
+          </h4>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {onlineResources.map((resource, idx) => (
+              <LearningResourceCard key={idx} resource={resource} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* UIT Courses Section */}
+      {uitCourses.length > 0 && (
+        <div className="space-y-2">
+          <h4 className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+            <GraduationCap className="h-4 w-4" />
+            UIT Courses
+          </h4>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {uitCourses.map((course, idx) => (
+              <UITCourseCard key={idx} course={course} />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -594,7 +594,7 @@ export function CVResume() {
                 <CardHeader>
                   <CardTitle className="text-blue-900">🎓 Recommended Learning Path</CardTitle>
                   <CardDescription>
-                    Verified learning resources from our knowledge base
+                    Verified learning resources from online platforms and UIT courses
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
