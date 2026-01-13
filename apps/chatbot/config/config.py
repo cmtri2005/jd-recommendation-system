@@ -20,7 +20,9 @@ class ConfigSingleton:
         return cls.__instance
 
     def __initialize(self) -> None:
-        env = {**dotenv_values(".env"), **os.environ}
+        # Load .env from project root (config/ -> chatbot/ -> apps/ -> root/)
+        env_path = PROJECT_ROOT.parent.parent / ".env"
+        env = {**dotenv_values(env_path), **os.environ}
 
         # LLM
         self.AWS_ACCESS_KEY_ID = env.get("AWS_ACCESS_KEY_ID", "")

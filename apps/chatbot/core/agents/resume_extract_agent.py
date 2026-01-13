@@ -24,7 +24,10 @@ class ResumeExtractAgent(BaseAgent):
                         Your task is to analyze the resume between triple backticks and extract structured information from it.
                         Ignore any personal information such as address, email, phone, v.v.
                         If the resume is not provided, return 'EMPTY'.
+                        
+                        IMPORTANT: Generate ALL extracted text in Vietnamese language.
                     """,
+
                 ),
                 (
                     "user",

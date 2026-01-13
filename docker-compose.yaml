@@ -108,7 +108,7 @@ services:
     command: ["/bin/bash", "-c", "mkdir -p /home/spark/.ivy2/cache && chown -R spark:spark /home/spark/.ivy2 && /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master"]
     ports:
       - "7077:7077"
-      - "8088:8080"  # Use 8088 to avoid conflict
+      - "8089:8080"  # Changed from 8088 to avoid conflict
     volumes:
       - ./apps/crawler/spark:/opt/spark/jobs
       - ./apps/crawler:/opt/spark/apps/crawler

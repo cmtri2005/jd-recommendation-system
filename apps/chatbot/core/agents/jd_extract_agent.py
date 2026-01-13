@@ -38,6 +38,8 @@ class JDExtractAgent(BaseAgent):
                         Make sure to extract ALL information from the job description. Pay special attention to work experience requirements, skills (both hard and soft), and education requirements.
                         Ignore any personal information such as address, email, phone, v.v.
                         If the job description is not provided, return an empty list.
+                        
+                        IMPORTANT: Generate ALL extracted text in Vietnamese language.
                     """,
                 ),
                 (
