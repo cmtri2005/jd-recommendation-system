@@ -52,7 +52,10 @@ LEFT JOIN dim_company dc ON uj.company_name = dc.company_name
 LEFT JOIN dim_location dl ON uj.location_city = dl.city_name
 ON CONFLICT (job_id) DO UPDATE SET
     job_title = EXCLUDED.job_title,
-    salary_raw = EXCLUDED.salary_raw; 
+    salary_raw = EXCLUDED.salary_raw,
+    job_level = EXCLUDED.job_level,
+    work_model = EXCLUDED.work_model,
+    experience_years = EXCLUDED.experience_years;
 
 -- 6. Populate Fact Job Skills (Bridge)
 INSERT INTO fact_job_skills (job_id, skill_id)

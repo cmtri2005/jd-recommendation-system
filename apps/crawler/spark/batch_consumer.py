@@ -2,6 +2,7 @@
 Spark Batch Consumer - Consume từ Kafka và ghi vào PostgreSQL
 Chạy batch mode (không streaming) - đọc tất cả messages và dừng
 """
+
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import (
     col,
@@ -11,6 +12,7 @@ from pyspark.sql.functions import (
     coalesce,
     when,
     sha2,
+    lower,
 )
 from pyspark.sql.types import (
     StructType,
@@ -19,6 +21,9 @@ from pyspark.sql.types import (
     ArrayType,
     FloatType,
 )
+
+
+from utils.normalize_job_level import normalize_job_level_sql
 
 
 def create_spark_session():
@@ -85,9 +90,18 @@ def get_itviec_schema():
 
 
 def main():
-    
-    from pyspark.sql.functions import col, from_json, lit, concat_ws, coalesce, when, sha2
-    
+
+    from pyspark.sql.functions import (
+        col,
+        from_json,
+        lit,
+        concat_ws,
+        coalesce,
+        when,
+        sha2,
+        lower,
+    )
+
     spark = create_spark_session()
     spark.sparkContext.setLogLevel("WARN")
 
@@ -125,7 +139,7 @@ def main():
                 col("job_requirements"),
                 col("job_benefits"),
                 col("salary"),
-                col("job_level"),
+                normalize_job_level_sql().alias("job_level"),
                 lit(None).cast(FloatType()).alias("experience_years"),
                 col("tags_skill").alias("skills"),
                 col("province").alias("location_city"),
@@ -153,7 +167,9 @@ def main():
         if df_itviec_raw.count() > 0:
             print(f"Found {df_itviec_raw.count()} ITViec messages")
             df_itviec_parsed = df_itviec_raw.select(
-                from_json(col("value").cast("string"), get_itviec_schema()).alias("data")
+                from_json(col("value").cast("string"), get_itviec_schema()).alias(
+                    "data"
+                )
             ).select("data.*")
 
             df_itviec_unified = df_itviec_parsed.select(
@@ -171,7 +187,9 @@ def main():
                 lit("N/A").alias("salary"),
                 col("normalized_level").alias("job_level"),
                 col("normalized_exp_years").alias("experience_years"),
-                coalesce(col("normalized_skills"), col("required_skills")).alias("skills"),
+                coalesce(col("normalized_skills"), col("required_skills")).alias(
+                    "skills"
+                ),
                 coalesce(
                     when(col("address").contains("Ho Chi Minh"), "Ho Chi Minh")
                     .when(col("address").contains("Ha Noi"), "Ha Noi")
@@ -209,21 +227,21 @@ def main():
         print("Checking for existing records in database...")
         try:
             # Read existing job_ids from database
-            df_existing = spark.read.format("jdbc").option(
-                "url", "jdbc:postgresql://postgres:5432/airflow"
-            ).option("driver", "org.postgresql.Driver").option(
-                "dbtable", "(SELECT job_id FROM unified_jobs) AS existing"
-            ).option(
-                "user", "airflow"
-            ).option(
-                "password", "airflow"
-            ).load()
-            
+            df_existing = (
+                spark.read.format("jdbc")
+                .option("url", "jdbc:postgresql://postgres:5432/airflow")
+                .option("driver", "org.postgresql.Driver")
+                .option("dbtable", "(SELECT job_id FROM unified_jobs) AS existing")
+                .option("user", "airflow")
+                .option("password", "airflow")
+                .load()
+            )
+
             # Use left anti join to filter out existing records
             df_new = df_unified.join(df_existing, "job_id", "left_anti")
             new_count = df_new.count()
             print(f"After filtering duplicates: {new_count} new records to insert")
-            
+
             if new_count > 0:
                 print("Writing new records to PostgreSQL...")
                 df_new.write.format("jdbc").option(
@@ -237,16 +255,27 @@ def main():
                 ).mode(
                     "append"
                 ).save()
-                print(f"Successfully wrote {new_count} new records to unified_jobs table")
+                print(
+                    f"Successfully wrote {new_count} new records to unified_jobs table"
+                )
             else:
                 print("No new records to insert (all records already exist)")
         except Exception as e:
             error_msg = str(e)
             # Check if error is due to duplicates (race condition)
-            if "duplicate key" in error_msg.lower() or "unique constraint" in error_msg.lower():
-                print(f"⚠️  Warning: Some duplicates detected (possible race condition): {error_msg}")
-                print("This is expected if pipeline runs concurrently. Records were filtered but some may have been inserted by another process.")
-                print("Pipeline will continue - duplicates are handled by database constraints.")
+            if (
+                "duplicate key" in error_msg.lower()
+                or "unique constraint" in error_msg.lower()
+            ):
+                print(
+                    f"⚠️  Warning: Some duplicates detected (possible race condition): {error_msg}"
+                )
+                print(
+                    "This is expected if pipeline runs concurrently. Records were filtered but some may have been inserted by another process."
+                )
+                print(
+                    "Pipeline will continue - duplicates are handled by database constraints."
+                )
             else:
                 print(f"❌ Error writing to Postgres: {e}")
                 raise
@@ -259,4 +288,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

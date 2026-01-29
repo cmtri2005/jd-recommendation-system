@@ -65,6 +65,22 @@ class LevelData(BaseModel):
     job_count: int
 
 
+class JobTitleData(BaseModel):
+    job_title: str
+    job_count: int
+
+
+class IndustryData(BaseModel):
+    industry: str
+    company_count: int
+    job_count: int
+
+
+class WorkModelData(BaseModel):
+    work_model: str
+    job_count: int
+
+
 @router.get("/api/dashboard/metrics", response_model=MetricsResponse)
 async def get_metrics(
     sources: Optional[str] = Query(None, description="Comma-separated list of sources"),
@@ -331,4 +347,145 @@ async def get_jobs_by_level(
 
     except Exception as e:
         logger.error(f"Error fetching jobs by level: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/api/dashboard/top-job-titles", response_model=List[JobTitleData])
+async def get_top_job_titles(
+    limit: int = Query(20, ge=1, le=100),
+    sources: Optional[str] = Query(None),
+    locations: Optional[str] = Query(None),
+):
+    """Get top job titles by job count."""
+    engine = get_db_engine()
+    if not engine:
+        raise HTTPException(status_code=500, detail="Database connection failed")
+
+    try:
+        where_clauses = []
+        if sources:
+            source_list = [f"'{s.strip()}'" for s in sources.split(",")]
+            where_clauses.append(f"fjp.source IN ({','.join(source_list)})")
+
+        if locations:
+            loc_list = [f"'{loc.strip()}'" for loc in locations.split(",")]
+            where_clauses.append(f"dl.city_name IN ({','.join(loc_list)})")
+
+        where_sql = ""
+        if where_clauses:
+            where_sql = "WHERE " + " AND ".join(where_clauses)
+
+        query = f"""
+        SELECT 
+            COALESCE(fjp.job_title, 'Not Specified') as job_title,
+            COUNT(fjp.job_id) as job_count
+        FROM fact_job_postings fjp
+        LEFT JOIN dim_location dl ON fjp.location_id = dl.location_id
+        {where_sql}
+        GROUP BY fjp.job_title
+        HAVING fjp.job_title IS NOT NULL AND fjp.job_title != ''
+        ORDER BY job_count DESC
+        LIMIT {limit}
+        """
+
+        df = pd.read_sql_query(query, engine)
+        return [JobTitleData(**row) for row in df.to_dict("records")]
+
+    except Exception as e:
+        logger.error(f"Error fetching top job titles: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/api/dashboard/industry-distribution", response_model=List[IndustryData])
+async def get_industry_distribution(
+    limit: int = Query(15, ge=1, le=50),
+    sources: Optional[str] = Query(None),
+    locations: Optional[str] = Query(None),
+):
+    """Get company distribution by industry."""
+    engine = get_db_engine()
+    if not engine:
+        raise HTTPException(status_code=500, detail="Database connection failed")
+
+    try:
+        where_clauses = []
+        joins = ["LEFT JOIN fact_job_postings fjp ON dc.company_id = fjp.company_id"]
+
+        if sources:
+            source_list = [f"'{s.strip()}'" for s in sources.split(",")]
+            where_clauses.append(f"fjp.source IN ({','.join(source_list)})")
+
+        if locations:
+            loc_list = [f"'{loc.strip()}'" for loc in locations.split(",")]
+            where_clauses.append(f"dl.city_name IN ({','.join(loc_list)})")
+            joins.append(
+                "LEFT JOIN dim_location dl ON fjp.location_id = dl.location_id"
+            )
+
+        join_sql = " ".join(joins)
+        where_sql = ""
+        if where_clauses:
+            where_sql = "WHERE " + " AND ".join(where_clauses)
+
+        query = f"""
+        SELECT 
+            COALESCE(dc.company_industry, 'Not Specified') as industry,
+            COUNT(DISTINCT dc.company_id) as company_count,
+            COUNT(fjp.job_id) as job_count
+        FROM dim_company dc
+        {join_sql}
+        {where_sql}
+        GROUP BY dc.company_industry
+        ORDER BY job_count DESC
+        LIMIT {limit}
+        """
+
+        df = pd.read_sql_query(query, engine)
+        return [IndustryData(**row) for row in df.to_dict("records")]
+
+    except Exception as e:
+        logger.error(f"Error fetching industry distribution: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get(
+    "/api/dashboard/work-model-distribution", response_model=List[WorkModelData]
+)
+async def get_work_model_distribution(
+    sources: Optional[str] = Query(None),
+    locations: Optional[str] = Query(None),
+):
+    """Get job distribution by work model."""
+    engine = get_db_engine()
+    if not engine:
+        raise HTTPException(status_code=500, detail="Database connection failed")
+
+    try:
+        where_clauses = ["fjp.work_model IS NOT NULL"]
+        if sources:
+            source_list = [f"'{s.strip()}'" for s in sources.split(",")]
+            where_clauses.append(f"fjp.source IN ({','.join(source_list)})")
+
+        if locations:
+            loc_list = [f"'{loc.strip()}'" for loc in locations.split(",")]
+            where_clauses.append(f"dl.city_name IN ({','.join(loc_list)})")
+
+        where_sql = "WHERE " + " AND ".join(where_clauses)
+
+        query = f"""
+        SELECT 
+            COALESCE(fjp.work_model, 'Not Specified') as work_model,
+            COUNT(*) as job_count
+        FROM fact_job_postings fjp
+        LEFT JOIN dim_location dl ON fjp.location_id = dl.location_id
+        {where_sql}
+        GROUP BY fjp.work_model
+        ORDER BY job_count DESC
+        """
+
+        df = pd.read_sql_query(query, engine)
+        return [WorkModelData(**row) for row in df.to_dict("records")]
+
+    except Exception as e:
+        logger.error(f"Error fetching work model distribution: {e}")
         raise HTTPException(status_code=500, detail=str(e))

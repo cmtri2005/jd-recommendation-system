@@ -21,7 +21,7 @@ with DAG(
     "job_etl_pipeline",
     default_args=default_args,
     description="ETL Pipeline for Job Data (Crawl -> Kafka -> Spark Consumer -> DW)",
-    schedule="@daily",  
+    schedule="@daily",
     catchup=False,
 ) as dag:
 
@@ -38,7 +38,11 @@ with DAG(
     produce_kafka = BashOperator(
         task_id="produce_to_kafka",
         bash_command="python /opt/airflow/apps/crawler/kafka/producer.py",
-        env={**os.environ, "PYTHONPATH": "/opt/airflow/apps", "KAFKA_BOOTSTRAP_SERVERS": "kafka:29092"},
+        env={
+            **os.environ,
+            "PYTHONPATH": "/opt/airflow/apps",
+            "KAFKA_BOOTSTRAP_SERVERS": "kafka:29092",
+        },
     )
 
     # Task 3: Create unified_jobs table (if not exists)
@@ -49,11 +53,11 @@ with DAG(
     )
 
     # Task 4: Spark Consumer - Consume from Kafka and write to PostgreSQL
-    
+
     spark_consumer = BashOperator(
         task_id="spark_consumer",
         bash_command="""
-        sudo docker exec -u root spark-master bash -c "mkdir -p /home/spark/.ivy2/cache && chown -R spark:spark /home/spark/.ivy2" && \
+        sudo docker exec -u root spark-master bash -c "mkdir -p /home/spark/.ivy2/cache /tmp/spark-temp && chown -R spark:spark /home/spark/.ivy2 /tmp/spark-temp" && \
         sudo docker exec spark-master /opt/spark/bin/spark-submit \
             --master spark://spark-master:7077 \
             --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0,org.postgresql:postgresql:42.6.0 \
@@ -82,4 +86,13 @@ with DAG(
     end_task = EmptyOperator(task_id="end")
 
     # Flow: Crawl -> Producer -> Create Tables -> Spark Consumer -> Init DW -> Transform
-    start_task >> crawl_data >> produce_kafka >> create_unified_jobs >> spark_consumer >> init_dw >> transform_dw >> end_task
+    (
+        start_task
+        >> crawl_data
+        >> produce_kafka
+        >> create_unified_jobs
+        >> spark_consumer
+        >> init_dw
+        >> transform_dw
+        >> end_task
+    )

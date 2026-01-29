@@ -7,7 +7,7 @@ import { createServer } from "./server";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    port: 8080,
+    port: 8081,
     fs: {
       allow: ["./client", "./shared"],
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],

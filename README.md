@@ -11,9 +11,10 @@ Hệ thống AI sử dụng LangGraph và RAG để phân tích độ phù hợp
 - Tóm tắt phân tích chi tiết
 
 ### 📊 Dashboard Analytics
-- Theo dõi xu hướng việc làm IT
-- Thống kê theo kỹ năng, vị trí, mức lương
-- Biểu đồ trực quan hóa dữ liệu
+- Theo dõi xu hướng việc làm IT real-time
+- 11 loại biểu đồ trực quan (Skills, Locations, Companies, Job Titles, Industry, Work Model, etc.)
+- Bộ lọc nâng cao theo nguồn dữ liệu và địa điểm
+- Tích hợp hoàn toàn trong React frontend
 
 ### 🕷️ Job Crawler
 - Thu thập dữ liệu từ TopCV, ITViec
