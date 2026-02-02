@@ -1,0 +1,11 @@
+{
+    "requests_per_minute": 10,
+    "requests_per_second": 0.5,
+    "max_retries": 5,
+    "initial_retry_delay": 10.0,
+    "max_retry_delay": 300.0,
+    "backoff_multiplier": 2.0,
+    "batch_size": 3,
+    "batch_delay": 60.0,
+    "item_delay": 15.0
+}

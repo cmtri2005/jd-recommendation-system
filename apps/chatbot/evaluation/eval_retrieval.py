@@ -17,7 +17,10 @@ from langchain_core.documents import Document
 from ragas import evaluate
 from ragas.metrics import context_precision, context_recall
 from datasets import Dataset
-from evaluation.metrics_utils import calculate_all_metrics, calculate_hit_rate_at_k
+from evaluation.utils.metrics_utils import (
+    calculate_all_metrics,
+    calculate_hit_rate_at_k,
+)
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)

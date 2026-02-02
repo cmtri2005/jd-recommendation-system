@@ -298,5 +298,1469 @@
     "pos_score": 98,
     "neg_score": 0,
     "success": true
+  },
+  "Associate Product Owner (APO)": {
+    "job": "Associate Product Owner (APO)",
+    "pos_score": 81,
+    "neg_score": 20,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 24,
+      "soft_skills_score": 5,
+      "work_experience_score": 24,
+      "years_of_experience_score": 13,
+      "education_score": 8,
+      "extras_score": 7
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 5,
+      "soft_skills_score": 2,
+      "work_experience_score": 3,
+      "years_of_experience_score": 3,
+      "education_score": 5,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "Gemini AI",
+        "importance": "important",
+        "learning_resources": [
+          "[Online] Generative AI with Large Language Models - DeepLearning.AI (https://www.coursera.org/learn/generative-ai-with-llms)",
+          "[Online] Generative AI for Everyone - DeepLearning.AI (https://www.coursera.org/learn/generative-ai-for-everyone)",
+          "[UIT] Trí tuệ nhân tạo cho hệ thống nhúng - Khoa Kỹ Thuật Máy Tính (Ngành: Kỹ Thuật Máy Tính)",
+          "[UIT] Trí tuệ nhân tạo cho hệ thống nhúng - Khoa Kỹ Thuật Máy Tính (Ngành: Kỹ Thuật Máy Tính)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên John Doe có nền tảng kỹ năng và kinh nghiệm phù hợp với vị trí Associate Product Owner. Có kinh nghiệm làm việc với Google Cloud, Agile và các kỹ năng phân tích kinh doanh. Tuy nhiên, cần bổ sung kiến thức về Gemini AI và tích lũy thêm kinh nghiệm trực tiếp trong vai trò Product Owner.",
+    "neg_summary": "Ứng viên có nền tảng học vấn đại học và một số kỹ năng mềm hữu ích, nhưng thiếu hụt nghiêm trọng về kinh nghiệm và kỹ năng cứng cần thiết cho vị trí Associate Product Owner. Hồ sơ chủ yếu tập trung vào marketing và khoa học dữ liệu, không phù hợp với yêu cầu của vị trí liên quan đến phát triển sản phẩm phần mềm và phân tích kinh doanh."
+  },
+  "PYTHON SOFTWARE ENGINEER (Junior / Fresher)": {
+    "job": "PYTHON SOFTWARE ENGINEER (Junior / Fresher)",
+    "pos_score": 98,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 13,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 3,
+      "work_experience_score": 0,
+      "years_of_experience_score": 5,
+      "education_score": 5,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe có một hồ sơ gần như hoàn hảo cho vị trí Junior Python Software Engineer. Anh ấy có nền tảng giáo dục vững chắc, kỹ năng kỹ thuật phù hợp, kinh nghiệm làm việc liên quan, và các kỹ năng mềm cần thiết. Điểm mạnh của ứng viên bao gồm kiến thức sâu rộng về Python, kinh nghiệm với các công cụ AI và DevOps, cũng như khả năng làm việc với dữ liệu và phát triển backend. Mặc dù vẫn ở cấp độ junior, ứng viên đã thể hiện khả năng học hỏi và thích ứng nhanh với công nghệ mới.",
+    "neg_summary": "Ứng viên không phù hợp với vị trí Python Software Engineer. Họ có nền tảng trong lĩnh vực marketing và thiết kế, nhưng hoàn toàn thiếu các kỹ năng kỹ thuật cần thiết như Python, phát triển backend, và kiến thức về AI. Kinh nghiệm làm việc và các dự án của ứng viên không liên quan đến vị trí này."
+  },
+  "Junior - Middle AI/Machine Learning Engineer": {
+    "job": "Junior - Middle AI/Machine Learning Engineer",
+    "pos_score": 89,
+    "neg_score": 18,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 28,
+      "soft_skills_score": 5,
+      "work_experience_score": 27,
+      "years_of_experience_score": 12,
+      "education_score": 9,
+      "extras_score": 8
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 2,
+      "soft_skills_score": 3,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 3,
+      "extras_score": 10
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "Kubeflow",
+        "importance": "nice-to-have",
+        "learning_resources": [
+          "[Online] Blockchain Revolution - INSEAD (https://www.coursera.org/specializations/blockchain-revolution-enterprise)",
+          "[Online] Blockchain Revolution in Financial Services - INSEAD (https://www.coursera.org/specializations/blockchain-financial-services)",
+          "[UIT] Viết báo cáo kỹ thuật và thuyết trình - Khoa Khoa Học và Kỹ Thuật Thông Tin (Ngành: Khoa Học Dữ Liệu)",
+          "[UIT] Hệ thống thông minh - Khoa Kỹ Thuật Máy Tính (Ngành: Kỹ Thuật Máy Tính)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên John Doe là một AI/ML Engineer có kinh nghiệm và kỹ năng ấn tượng. Anh ấy có nền tảng mạnh mẽ về các công nghệ AI/ML, kinh nghiệm thực tế trong việc phát triển và triển khai mô hình AI, cùng với kỹ năng mềm xuất sắc. Mặc dù có một vài lĩnh vực có thể cải thiện, nhưng nhìn chung ứng viên rất phù hợp với vị trí này.",
+    "neg_summary": "Ứng viên có nền tảng về marketing và thiết kế đồ họa, nhưng thiếu hầu hết các kỹ năng và kinh nghiệm cần thiết cho vị trí AI Engineer. Mặc dù có một số kỹ năng mềm tốt và chứng chỉ bổ sung, nhưng ứng viên cần phải học hỏi và phát triển nhiều kỹ năng chuyên môn về AI, máy học và phát triển phần mềm để phù hợp với yêu cầu công việc."
+  },
+  "Senior Site Reliability Engineer": {
+    "job": "Senior Site Reliability Engineer",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 29,
+      "soft_skills_score": 5,
+      "work_experience_score": 28,
+      "years_of_experience_score": 15,
+      "education_score": 9,
+      "extras_score": 9
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 2,
+      "soft_skills_score": 3,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 5,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên Nguyen Van A là một Senior Site Reliability Engineer có kinh nghiệm ấn tượng với hơn 8 năm làm việc trong lĩnh vực này. Các kỹ năng kỹ thuật của ứng viên hoàn toàn phù hợp với yêu cầu công việc, bao gồm kinh nghiệm sâu rộng về Kubernetes, các hệ thống cơ sở dữ liệu, và công cụ giám sát. Kinh nghiệm làm việc của ứng viên rất phù hợp với các trách nhiệm của vị trí, và các kỹ năng mềm của ứng viên cũng rất tốt. Không có điểm yếu đáng kể nào được phát hiện trong hồ sơ của ứng viên.",
+    "neg_summary": "Ứng viên John Doe có nền tảng về marketing và thiết kế đồ họa, với một số kỹ năng phân tích dữ liệu cơ bản. Tuy nhiên, ứng viên thiếu hầu hết các kỹ năng và kinh nghiệm cần thiết cho vị trí Senior Site Reliability Engineer. Điểm mạnh chính của ứng viên là kỹ năng mềm và một số chứng chỉ marketing, nhưng những điều này không đủ để bù đắp cho sự thiếu hụt lớn về kiến thức kỹ thuật và kinh nghiệm trong lĩnh vực SRE."
+  },
+  "CV Phát triển ứng dụng (Java Developer)": {
+    "job": "CV Phát triển ứng dụng (Java Developer)",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 29,
+      "soft_skills_score": 5,
+      "work_experience_score": 29,
+      "years_of_experience_score": 14,
+      "education_score": 9,
+      "extras_score": 9
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 3,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 5,
+      "education_score": 3,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "Công nghệ ngân hàng",
+        "importance": "nice-to-have",
+        "learning_resources": [
+          "[Online] Networking in Google Cloud - Google Cloud (https://www.coursera.org/specializations/networking-google-cloud-platform)",
+          "[Online] Preparing for Google Cloud Certification: Cloud Network Engineer - Google Cloud (https://www.coursera.org/professional-certificates/google-cloud-networking)",
+          "[UIT] Các công nghệ nền - Khoa Khoa Học và Kỹ Thuật Thông Tin (Ngành: Công Nghệ Thông Tin)",
+          "[UIT] Công nghệ Blockchain và Ứng dụng - Khoa Mạng Máy Tính Và Truyền Thông (Ngành: An Toàn Thông Tin)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên Nguyễn Văn A là một lập trình viên Java giàu kinh nghiệm với hơn 5 năm làm việc trong lĩnh vực phát triển phần mềm. Có kỹ năng chuyên môn cao về Java, phát triển ứng dụng Web và Service, tích hợp hệ thống và kiểm thử phần mềm. Ứng viên cũng có kỹ năng mềm tốt và các chứng chỉ chuyên môn liên quan. Mặc dù thiếu kinh nghiệm cụ thể trong lĩnh vực ngân hàng, nhưng với nền tảng kỹ thuật vững chắc, ứng viên có khả năng thích ứng nhanh với môi trường mới.",
+    "neg_summary": "Ứng viên có nền tảng về marketing và kỹ năng mềm tốt, nhưng thiếu hụt nghiêm trọng về kiến thức và kinh nghiệm trong lĩnh vực phát triển phần mềm, đặc biệt là Java và tích hợp hệ thống. Mặc dù có một số kiến thức cơ bản về Python và phân tích dữ liệu, nhưng điều này không đủ để đáp ứng yêu cầu của vị trí công việc. Ứng viên cần đào tạo đáng kể để phù hợp với vai trò này."
+  },
+  "Chief Information Technology/ Head of AI (Japanese N2+)": {
+    "job": "Chief Information Technology/ Head of AI (Japanese N2+)",
+    "pos_score": 96,
+    "neg_score": 5,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 28,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 8
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 1,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 1,
+      "extras_score": 3
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một lựa chọn xuất sắc cho vị trí CTO/Head of AI. Với hơn 10 năm kinh nghiệm trong lĩnh vực AI, ML và chuyển đổi số, cùng với kiến thức chuyên sâu về các công nghệ AI hiện đại, ứng viên hoàn toàn đáp ứng và vượt trội so với yêu cầu của vị trí. Kỹ năng lãnh đạo chiến lược, khả năng giao tiếp xuất sắc (bao gồm cả tiếng Nhật N2+) và kinh nghiệm hợp tác quốc tế là những điểm mạnh nổi bật. Nền tảng học vấn vững chắc với bằng Thạc sĩ từ Đại học Tokyo cũng là một lợi thế lớn.",
+    "neg_summary": "Ứng viên John Doe có nền tảng về marketing và thiết kế, nhưng hoàn toàn thiếu kinh nghiệm và kỹ năng cần thiết cho vị trí CTO/Head of AI. Không có kiến thức về AI, phát triển phần mềm, hoặc quản lý công nghệ. Ứng viên cũng thiếu kinh nghiệm lãnh đạo và kỹ năng tiếng Nhật cần thiết cho vị trí này."
+  },
+  "[HN] Middle/Senior Java Engineer": {
+    "job": "[HN] Middle/Senior Java Engineer",
+    "pos_score": 95,
+    "neg_score": 0,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 28,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 7
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 0,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 0,
+      "extras_score": 0
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "Ngân hàng",
+        "importance": "nice-to-have",
+        "learning_resources": [
+          "[Online] Generative Adversarial Networks (GANs) - DeepLearning.AI (https://www.coursera.org/specializations/generative-adversarial-networks-gans)",
+          "[Online] Google Cybersecurity - Google (https://www.coursera.org/professional-certificates/google-cybersecurity)",
+          "[UIT] Mô hình ngôn ngữ lớn - Khoa Khoa Học và Kỹ Thuật Thông Tin (Ngành: Khoa Học Dữ Liệu)",
+          "[UIT] Hệ thống tìm kiếm, phát hiện và ngăn ngừa xâm nhập - Khoa Mạng Máy Tính Và Truyền Thông (Ngành: An Toàn Thông Tin)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên John Doe là một Java Engineer xuất sắc với hơn 5 năm kinh nghiệm, có đầy đủ kỹ năng kỹ thuật và mềm cần thiết cho vị trí tại NAB Vietnam. Điểm mạnh của ứng viên bao gồm kinh nghiệm phong phú với Java, microservices, AWS và CI/CD. Mặc dù thiếu kinh nghiệm trực tiếp trong ngành ngân hàng, nhưng với nền tảng kỹ thuật vững chắc và khả năng học hỏi nhanh, ứng viên có thể dễ dàng thích nghi với môi trường mới.",
+    "neg_summary": "Ứng viên hoàn toàn không phù hợp với vị trí Java Engineer. Hồ sơ của ứng viên tập trung vào lĩnh vực marketing, thiếu hoàn toàn các kỹ năng và kinh nghiệm cần thiết trong lập trình Java, phát triển phần mềm và IT. Bằng cấp, kinh nghiệm làm việc và các kỹ năng của ứng viên không liên quan đến yêu cầu của vị trí."
+  },
+  "Associate Risk Manager": {
+    "job": "Associate Risk Manager",
+    "pos_score": 100,
+    "neg_score": 16,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 2,
+      "soft_skills_score": 2,
+      "work_experience_score": 3,
+      "years_of_experience_score": 2,
+      "education_score": 3,
+      "extras_score": 4
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một sự phù hợp hoàn hảo cho vị trí Phân tích Danh mục Đầu tư. Với hơn 5 năm kinh nghiệm, kỹ năng kỹ thuật toàn diện, và kinh nghiệm trực tiếp trong phân tích danh mục đầu tư và quản lý rủi ro, ứng viên đáp ứng và vượt quá tất cả các yêu cầu của vị trí. Nền tảng giáo dục vững chắc, chứng chỉ chuyên môn, và kỹ năng mềm xuất sắc làm cho John trở thành ứng viên lý tưởng cho vai trò này.",
+    "neg_summary": "Ứng viên thiếu hầu hết các kỹ năng và kinh nghiệm cần thiết cho vị trí phân tích rủi ro tín dụng. Nền tảng giáo dục và kinh nghiệm làm việc không phù hợp với yêu cầu công việc. Tuy nhiên, ứng viên có một số kỹ năng mềm và chứng chỉ liên quan đến phân tích dữ liệu có thể hữu ích."
+  },
+  "Lead Backend Engineer - Golang Expert": {
+    "job": "Lead Backend Engineer - Golang Expert",
+    "pos_score": 99,
+    "neg_score": 10,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 9
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 3,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên Nguyen Van A là một lựa chọn xuất sắc cho vị trí Senior Backend Engineer tại Oolio. Với hơn 10 năm kinh nghiệm trong phát triển sản phẩm, chuyên sâu về Golang, Reactjs và Nodejs, ứng viên đáp ứng và vượt xa mọi yêu cầu kỹ thuật của vị trí. Kinh nghiệm làm việc với các công nghệ cloud, kiến trúc microservices và container hóa càng làm tăng giá trị của ứng viên. Bằng cấp, chứng chỉ và kỹ năng mềm của ứng viên cũng rất phù hợp với yêu cầu công việc.",
+    "neg_summary": "Ứng viên John Doe hoàn toàn không phù hợp với vị trí Senior Backend Engineer. Sơ yếu lý lịch của ứng viên tập trung vào lĩnh vực marketing và thiết kế đồ họa, thiếu hẳn các kỹ năng và kinh nghiệm cần thiết trong phát triển backend. Ứng viên cũng không đáp ứng được yêu cầu về số năm kinh nghiệm cho vị trí senior."
+  },
+  "Java Backend developer -VTS": {
+    "job": "Java Backend developer -VTS",
+    "pos_score": 100,
+    "neg_score": 20,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 3,
+      "soft_skills_score": 3,
+      "work_experience_score": 2,
+      "years_of_experience_score": 3,
+      "education_score": 5,
+      "extras_score": 4
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên Nguyen Van A là một lựa chọn hoàn hảo cho vị trí này. Với 5 năm kinh nghiệm làm Architect và Developer, ứng viên thể hiện sự thành thạo trong thiết kế kiến trúc hệ thống web, phát triển front-end và back-end, tích hợp CI/CD, và container hóa. Kinh nghiệm làm việc của ứng viên phù hợp hoàn toàn với yêu cầu công việc, và các kỹ năng mềm cũng như chứng chỉ bổ sung càng làm tăng thêm giá trị của hồ sơ.",
+    "neg_summary": "Ứng viên có nền tảng về Marketing và một số kỹ năng mềm tốt, nhưng lại thiếu hụt nghiêm trọng các kỹ năng cứng cần thiết cho vị trí phát triển web. Kinh nghiệm làm việc không liên quan và thiếu các công nghệ quan trọng như Java, HTML/CSS/JS, React, Angular. Cần đào tạo nhiều để đáp ứng yêu cầu công việc."
+  },
+  "Senior IT Security": {
+    "job": "Senior IT Security",
+    "pos_score": 98,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 29,
+      "years_of_experience_score": 14,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 2,
+      "soft_skills_score": 1,
+      "work_experience_score": 3,
+      "years_of_experience_score": 2,
+      "education_score": 2,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một chuyên gia bảo mật IT xuất sắc với hơn 8 năm kinh nghiệm trong ngành BFSI. Có kiến thức toàn diện về bảo mật đám mây, phân tích mối đe dọa bằng AI, và quản lý cơ sở hạ tầng IT. Ứng viên có đầy đủ chứng chỉ chuyên môn và kỹ năng mềm cần thiết. Không có điểm yếu đáng kể, chỉ cần thời gian làm quen với môi trường mới tại MB Life.",
+    "neg_summary": "Ứng viên có nền tảng về lập trình Python và phân tích dữ liệu, nhưng thiếu hầu hết các kỹ năng và kinh nghiệm cần thiết cho vị trí Bảo mật IT. Không có kinh nghiệm trong lĩnh vực bảo mật hoặc BFSI, và bằng cấp không liên quan trực tiếp. Cần phải học hỏi nhiều kỹ năng quan trọng như Java, AI trong bảo mật mạng, và các môi trường đám mây."
+  },
+  "Software Architect (Cloud, CI/CD, DevOps)": {
+    "job": "Software Architect (Cloud, CI/CD, DevOps)",
+    "pos_score": 98,
+    "neg_score": 20,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 8,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 5,
+      "soft_skills_score": 2,
+      "work_experience_score": 3,
+      "years_of_experience_score": 3,
+      "education_score": 3,
+      "extras_score": 4
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một lựa chọn xuất sắc cho vị trí Software Architect tại OL Vietnam. Với hơn 10 năm kinh nghiệm, kiến thức chuyên sâu về các công nghệ hiện đại, và kỹ năng lãnh đạo mạnh mẽ, ứng viên đáp ứng hoàn hảo các yêu cầu của vị trí. Các điểm mạnh nổi bật bao gồm kinh nghiệm thực tế trong thiết kế hệ thống, containerization, và cloud platforms. Mặc dù có thể cần cập nhật thêm kiến thức học thuật mới, nhưng điều này không ảnh hưởng đáng kể đến khả năng thực hiện công việc xuất sắc.",
+    "neg_summary": "Ứng viên có nền tảng về marketing và phân tích dữ liệu, nhưng thiếu hụt nghiêm trọng các kỹ năng và kinh nghiệm cần thiết cho vị trí Software Architect. Họ không có kinh nghiệm về phát triển phần mềm, kiến trúc hệ thống, và các công nghệ quan trọng như Java, containerization và orchestration. Bằng cấp và kinh nghiệm làm việc không phù hợp với yêu cầu của vị trí."
+  },
+  "Urgent - Full Stack Engineer (Golang, TypeScript)": {
+    "job": "Urgent - Full Stack Engineer (Golang, TypeScript)",
+    "pos_score": 100,
+    "neg_score": 10,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 1,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 2,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một sự phù hợp hoàn hảo cho vị trí Full-stack Developer. Với hơn 5 năm kinh nghiệm trong việc phát triển microservices sử dụng Golang và React, cùng với kiến thức sâu rộng về cơ sở dữ liệu, API, và Kubernetes, ứng viên đáp ứng tất cả các yêu cầu kỹ thuật của công việc. Kinh nghiệm của họ trong việc xây dựng và tối ưu hóa cơ sở dữ liệu, phát triển API, và debug toàn bộ stack phù hợp hoàn hảo với nhiệm vụ của vị trí. Không có điểm yếu đáng kể nào được xác định.",
+    "neg_summary": "Ứng viên thiếu hầu hết các kỹ năng kỹ thuật cần thiết cho vị trí này. Họ có nền tảng về nghệ thuật và marketing, với chỉ kiến thức cơ bản về Python. Điểm mạnh chính là kỹ năng mềm và một số chứng chỉ liên quan đến marketing. Tuy nhiên, khoảng cách giữa kỹ năng hiện tại và yêu cầu công việc là rất lớn."
+  },
+  "Computer Vision Engineer (C++, Python)": {
+    "job": "Computer Vision Engineer (C++, Python)",
+    "pos_score": 100,
+    "neg_score": 10,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 3,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một sự phù hợp hoàn hảo cho vị trí Computer Vision Engineer tại EyeClick. Với kinh nghiệm sâu rộng trong lĩnh vực Computer Vision, Machine Learning và AI, cùng với các kỹ năng cụ thể như object detection, segmentation, 3D image analysis và tracking algorithms, ứng viên đáp ứng đầy đủ các yêu cầu kỹ thuật của công việc. Bằng cấp, chứng chỉ và kinh nghiệm làm việc của ứng viên cũng hoàn toàn phù hợp với vị trí này.",
+    "neg_summary": "Ứng viên John Doe có nền tảng về marketing và không có kinh nghiệm hoặc kỹ năng liên quan đến Computer Vision, Machine Learning hay AI. Hồ sơ của ứng viên hoàn toàn không phù hợp với vị trí Computer Vision Engineer, thiếu hụt nghiêm trọng về kiến thức chuyên môn và kinh nghiệm trong lĩnh vực này."
+  },
+  "Senior UI Designer (10 headcounts)": {
+    "job": "Senior UI Designer (10 headcounts)",
+    "pos_score": 94,
+    "neg_score": 10,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 28,
+      "years_of_experience_score": 15,
+      "education_score": 9,
+      "extras_score": 7
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 2,
+      "soft_skills_score": 1,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 2,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe có hồ sơ gần như hoàn hảo cho vị trí UI Designer. Với hơn 5 năm kinh nghiệm, kỹ năng chuyên môn mạnh mẽ và kinh nghiệm làm việc phù hợp tại FPT Software, ứng viên đáp ứng xuất sắc các yêu cầu của vị trí. Điểm mạnh bao gồm khả năng sử dụng thành thạo các công cụ thiết kế, kinh nghiệm trong việc tạo wireframes, prototypes và thiết kế cuối cùng, cũng như kỹ năng mềm phù hợp. Tuy nhiên, ứng viên có thể cần thời gian để thích nghi với quy trình làm việc với trụ sở chính ở Hàn Quốc.",
+    "neg_summary": "Ứng viên có nền tảng về kinh tế nông nghiệp và phân tích dữ liệu, nhưng hoàn toàn thiếu kinh nghiệm và kỹ năng trong lĩnh vực thiết kế UI. Mặc dù có một số kỹ năng mềm có thể chuyển đổi được, ứng viên cần phải học hỏi và phát triển nhiều kỹ năng cốt lõi để phù hợp với vị trí UI Designer. Sự không phù hợp giữa hồ sơ của ứng viên và yêu cầu công việc là rất lớn."
+  },
+  "DevOps Engineer (CI/CD,AWS)": {
+    "job": "DevOps Engineer (CI/CD,AWS)",
+    "pos_score": 100,
+    "neg_score": 20,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 5,
+      "soft_skills_score": 3,
+      "work_experience_score": 3,
+      "years_of_experience_score": 0,
+      "education_score": 5,
+      "extras_score": 4
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một sự phù hợp hoàn hảo cho vị trí DevOps Engineer. Anh ấy có kinh nghiệm sâu rộng và kỹ năng mạnh mẽ trong tất cả các lĩnh vực yêu cầu, bao gồm AWS, Jenkins, GitLab CI và Infrastructure as Code. Kinh nghiệm làm việc của ứng viên cho thấy khả năng xuất sắc trong việc cải thiện quy trình CI/CD, tự động hóa cơ sở hạ tầng và đảm bảo độ tin cậy cũng như khả năng mở rộng của ứng dụng. Không có điểm yếu đáng kể nào được phát hiện trong hồ sơ của ứng viên.",
+    "neg_summary": "Ứng viên có nền tảng về marketing và phân tích dữ liệu, nhưng thiếu hầu hết các kỹ năng và kinh nghiệm cần thiết cho vị trí DevOps Engineer. Mặc dù có một số kỹ năng mềm tốt và chứng chỉ liên quan đến marketing, nhưng ứng viên cần phải học hỏi và phát triển nhiều kỹ năng kỹ thuật quan trọng để phù hợp với vị trí này."
+  },
+  "Mid/Senior Android Developer(Java/Kotlin)": {
+    "job": "Mid/Senior Android Developer(Java/Kotlin)",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 29,
+      "soft_skills_score": 5,
+      "work_experience_score": 29,
+      "years_of_experience_score": 15,
+      "education_score": 8,
+      "extras_score": 9
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 3,
+      "soft_skills_score": 2,
+      "work_experience_score": 2,
+      "years_of_experience_score": 3,
+      "education_score": 3,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "GitLab CI/CD",
+        "importance": "nice-to-have",
+        "learning_resources": [
+          "[Online] DevOps, Cloud, and Agile Foundations - IBM (https://www.coursera.org/specializations/devops-cloud-and-agile-foundations)",
+          "[Online] Google IT Automation with Python - Google (https://www.coursera.org/professional-certificates/google-it-automation)",
+          "[UIT] Phát triển, vận hành, bảo trì phần mềm - Khoa Công Nghệ Phần Mềm (Ngành: Kỹ Thuật Phần Mềm)",
+          "[UIT] Lập trình kịch bản tự động hóa cho quản trị và bảo mật mạng - Khoa Mạng Máy Tính Và Truyền Thông (Ngành: Mạng máy tính và Truyền thông dữ liệu)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên John Doe có hồ sơ gần như hoàn hảo cho vị trí Android Developer. Với hơn 5 năm kinh nghiệm, kiến thức chuyên sâu về Java, Kotlin và Android SDK, cùng với kinh nghiệm phát triển ứng dụng Point of Sale và Payment Gateway, ứng viên đáp ứng xuất sắc các yêu cầu kỹ thuật của vị trí. Kỹ năng mềm và khả năng làm việc nhóm của ứng viên cũng rất phù hợp với yêu cầu công việc. Chỉ có một điểm nhỏ là kinh nghiệm với GitLab CI/CD không được đề cập cụ thể.",
+    "neg_summary": "Ứng viên có nền tảng về marketing và phân tích dữ liệu, nhưng thiếu hụt nghiêm trọng các kỹ năng cần thiết cho vị trí Android Developer. Không có kinh nghiệm phát triển ứng dụng di động và thiếu các kỹ năng lập trình cần thiết như Java/Kotlin. Cần đào tạo lại hoàn toàn để phù hợp với vị trí."
+  },
+  "Middle/Senior ReactJS Engineer": {
+    "job": "Middle/Senior ReactJS Engineer",
+    "pos_score": 85,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 28,
+      "soft_skills_score": 4,
+      "work_experience_score": 27,
+      "years_of_experience_score": 15,
+      "education_score": 7,
+      "extras_score": 4
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 3,
+      "soft_skills_score": 2,
+      "work_experience_score": 2,
+      "years_of_experience_score": 3,
+      "education_score": 2,
+      "extras_score": 3
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "Generative AI",
+        "importance": "important",
+        "learning_resources": [
+          "[Online] Introduction to Generative AI - Google Cloud (https://www.coursera.org/learn/introduction-to-generative-ai)",
+          "[Online] Generative AI for Everyone - DeepLearning.AI (https://www.coursera.org/learn/generative-ai-for-everyone)",
+          "[UIT] AI ứng dụng trong mạng và truyền thông - Khoa Mạng Máy Tính Và Truyền Thông (Ngành: MMT&TTDL)",
+          "[UIT] Đạo đức trong Trí tuệ nhân tạo và Khoa học dữ liệu - Khoa Khoa Học và Kỹ Thuật Thông Tin (Ngành: Khoa Học Dữ Liệu)"
+        ]
+      },
+      {
+        "skill_name": "Digital Assets",
+        "importance": "important",
+        "learning_resources": [
+          "[Online] Marketing Digital - Universidade de São Paulo (https://www.coursera.org/learn/estrategia-marketing-digital)",
+          "[Online] Digital Marketing - University of Illinois at Urbana-Champaign (https://www.coursera.org/specializations/digital-marketing)",
+          "[UIT] Khai phá dữ liệu trong doanh nghiệp - Khoa Khoa Học và Kỹ Thuật Thông Tin (Ngành: Công Nghệ Thông Tin)",
+          "[UIT] Dữ liệu lớn ứng dụng trong truyền thông đa phương tiện - Khoa Công Nghệ Phần Mềm (Ngành: Truyền Thông Đa Phương Tiện)"
+        ]
+      },
+      {
+        "skill_name": "Open Banking",
+        "importance": "important",
+        "learning_resources": [
+          "[Online] Economics of Money and Banking - Columbia University (https://www.coursera.org/learn/money-banking)",
+          "[Online] Blockchain Revolution in Financial Services - INSEAD (https://www.coursera.org/specializations/blockchain-financial-services)",
+          "[UIT] Mô hình đồ thị xác suất - Khoa Khoa Học và Kỹ Thuật Thông Tin (Ngành: Khoa Học Dữ Liệu)",
+          "[UIT] Thiết kế giao diện người dùng - Khoa Khoa Học và Kỹ Thuật Thông Tin (Ngành: Khoa Học Dữ Liệu)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên John Doe có nền tảng kỹ thuật mạnh mẽ về ReactJS và phát triển web frontend với hơn 5 năm kinh nghiệm. Anh ấy có kiến thức sâu rộng về các công nghệ liên quan và quy trình phát triển Agile. Tuy nhiên, ứng viên thiếu kinh nghiệm cụ thể trong một số lĩnh vực đổi mới như generative AI và digital assets. Nhìn chung, ứng viên có tiềm năng phù hợp cao với vị trí ReactJS Engineer tại NAB.",
+    "neg_summary": "Ứng viên John Doe có nền tảng về tiếp thị và phân tích dữ liệu, nhưng thiếu hoàn toàn kinh nghiệm và kỹ năng cần thiết cho vị trí ReactJS Engineer. Mặc dù có một số kỹ năng lập trình Python, ứng viên không có kinh nghiệm với ReactJS, Agile, CI/CD hoặc DevOps. Bằng cấp và kinh nghiệm làm việc của ứng viên không phù hợp với yêu cầu của vị trí."
+  },
+  "[Da Nang] Fullstack Developer (Python/Django/JavaScrip)": {
+    "job": "[Da Nang] Fullstack Developer (Python/Django/JavaScrip)",
+    "pos_score": 98,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 29,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 9
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 2,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 5,
+      "extras_score": 6
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe có hồ sơ gần như hoàn hảo cho vị trí Software Developer/Engineer. Với hơn 5 năm kinh nghiệm, kỹ năng kỹ thuật đa dạng và mạnh mẽ, cùng với khả năng mềm xuất sắc, ứng viên đáp ứng và vượt trội hầu hết các yêu cầu của công việc. Kinh nghiệm của ứng viên trong phát triển, kiểm thử, CI/CD, QA và NFR phù hợp hoàn toàn với mô tả công việc. Không có điểm yếu đáng kể nào được phát hiện.",
+    "neg_summary": "Ứng viên John Doe có nền tảng về marketing và thiết kế, nhưng thiếu hầu hết các kỹ năng và kinh nghiệm cần thiết cho vị trí phát triển phần mềm Java backend. Mặc dù có một số chứng chỉ và kinh nghiệm với Python, nhưng không đủ để đáp ứng yêu cầu của công việc. Ứng viên cần phải học thêm nhiều kỹ năng kỹ thuật quan trọng để phù hợp với vị trí này."
+  },
+  "Vision Engineer (C++, C#, Python)": {
+    "job": "Vision Engineer (C++, C#, Python)",
+    "pos_score": 100,
+    "neg_score": 10,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 3,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 2,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một lựa chọn hoàn hảo cho vị trí này. Với hơn 5 năm kinh nghiệm trong phát triển phần mềm, chuyên sâu về xử lý hình ảnh và học máy, ứng viên đáp ứng tất cả các yêu cầu kỹ thuật và kỹ năng mềm cần thiết. Kinh nghiệm làm việc của ứng viên phù hợp chính xác với các trách nhiệm công việc được liệt kê, bao gồm phát triển thuật toán, tối ưu hóa hiệu suất, và làm việc với các nhóm chức năng chéo. Không có điểm yếu đáng kể nào được phát hiện trong hồ sơ của ứng viên.",
+    "neg_summary": "Ứng viên hoàn toàn không phù hợp với vị trí công việc này. Họ có nền tảng về marketing và thiếu hẳn các kỹ năng cần thiết về lập trình, xử lý hình ảnh và machine learning. Mặc dù có một số kỹ năng mềm tốt, nhưng kinh nghiệm và học vấn của họ không liên quan đến yêu cầu công việc."
+  },
+  "Senior Java Backend Engineer (Spring Boot, SQL, NoSQL)": {
+    "job": "Senior Java Backend Engineer (Spring Boot, SQL, NoSQL)",
+    "pos_score": 98,
+    "neg_score": 20,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 29,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 9
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 2,
+      "soft_skills_score": 3,
+      "work_experience_score": 5,
+      "years_of_experience_score": 0,
+      "education_score": 5,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một Java senior có kinh nghiệm xuất sắc với hơn 8 năm làm việc trong lĩnh vực phát triển phần mềm. Họ có kỹ năng mạnh mẽ trong Java, các framework phát triển, và công nghệ ETL/ML, cùng với kinh nghiệm thực tế trong việc tự động hóa quy trình ETL và ML. Ứng viên cũng thể hiện kỹ năng mềm tốt, phù hợp với yêu cầu làm việc độc lập và theo nhóm. Với nền tảng giáo dục vững chắc và các chứng chỉ chuyên nghiệp, John Doe là một ứng viên lý tưởng cho vị trí Java senior này.",
+    "neg_summary": "Ứng viên thiếu hụt nghiêm trọng về kỹ năng cứng và kinh nghiệm làm việc cần thiết cho vị trí Java senior. Họ không có kinh nghiệm về Java, ETL pipelines, hoặc ML workflow. Điểm mạnh duy nhất là kỹ năng mềm và một số chứng chỉ, nhưng không đủ để bù đắp cho những thiếu sót lớn trong kỹ năng kỹ thuật và kinh nghiệm."
+  },
+  "Data Scientist - eKYC": {
+    "job": "Data Scientist - eKYC",
+    "pos_score": 100,
+    "neg_score": 10,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 3,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 5,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một sự phù hợp hoàn hảo cho vị trí Data Scientist, eKYC tại Trusting Social. Với kinh nghiệm sâu rộng về machine learning, computer vision và AI, cùng với bằng cấp từ các trường đại học hàng đầu, ứng viên đáp ứng xuất sắc mọi yêu cầu của công việc. Kinh nghiệm làm việc của ứng viên trong lĩnh vực xác minh danh tính kỹ thuật số và phòng chống gian lận cũng rất phù hợp với mục tiêu của Trusting Social.",
+    "neg_summary": "Ứng viên John Doe có nền tảng trong lĩnh vực tiếp thị và thiết kế đồ họa, hoàn toàn không phù hợp với vị trí Data Scientist, eKYC. Ứng viên thiếu hầu hết các kỹ năng cứng cần thiết như machine learning, computer vision, và lập trình. Mặc dù có kỹ năng mềm tốt, nhưng kinh nghiệm làm việc và học vấn của ứng viên không liên quan đến vị trí này."
+  },
+  "Senior React Developer (Freelancer)": {
+    "job": "Senior React Developer (Freelancer)",
+    "pos_score": 100,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 3,
+      "education_score": 5,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một sự phù hợp hoàn hảo cho vị trí này. Với kinh nghiệm chuyên sâu về React và phát triển front-end, cùng với kỹ năng hỗ trợ kỹ thuật xuất sắc, ứng viên đáp ứng đầy đủ tất cả các yêu cầu của công việc. Kinh nghiệm làm việc trực tiếp với khách hàng, kỹ năng giao tiếp tốt và chứng chỉ chuyên môn càng làm tăng thêm giá trị của ứng viên.",
+    "neg_summary": "Ứng viên John Doe có nền tảng về marketing nhưng thiếu hoàn toàn các kỹ năng cần thiết cho vị trí phát triển front-end và hỗ trợ kỹ thuật. Không có kinh nghiệm về React hoặc lập trình web. Điểm mạnh duy nhất là kỹ năng giao tiếp và sự chủ động học hỏi, thể hiện qua các chứng chỉ đã đạt được."
+  },
+  "Fullstack Developer (.NET / ReactJS)": {
+    "job": "Fullstack Developer (.NET / ReactJS)",
+    "pos_score": 85,
+    "neg_score": 30,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 28,
+      "soft_skills_score": 5,
+      "work_experience_score": 26,
+      "years_of_experience_score": 13,
+      "education_score": 8,
+      "extras_score": 5
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 5,
+      "soft_skills_score": 3,
+      "work_experience_score": 5,
+      "years_of_experience_score": 5,
+      "education_score": 7,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "AI APIs",
+        "importance": "important",
+        "learning_resources": [
+          "[Online] AI for Good - DeepLearning.AI (https://www.coursera.org/specializations/ai-for-good)",
+          "[Online] AI For Business - University of Pennsylvania (https://www.coursera.org/specializations/ai-for-business-wharton)",
+          "[UIT] AI ứng dụng trong mạng và truyền thông - Khoa Mạng Máy Tính Và Truyền Thông (Ngành: MMT&TTDL)",
+          "[UIT] AI trong y tế - Khoa Hệ Thống Thông Tin (Ngành: Hệ Thống Thông Tin)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên John Doe là một nhà phát triển full-stack có kinh nghiệm với hơn 5 năm làm việc trong lĩnh vực này. Anh ấy có kiến thức sâu rộng về nhiều ngôn ngữ lập trình, framework và công nghệ liên quan. Điểm mạnh của ứng viên bao gồm kỹ năng kỹ thuật đa dạng, kinh nghiệm làm việc phong phú và kỹ năng mềm tốt. Tuy nhiên, ứng viên có thể cần bổ sung kiến thức về AI APIs để đáp ứng đầy đủ yêu cầu công việc.",
+    "neg_summary": "Ứng viên có nền tảng giáo dục tốt trong lĩnh vực marketing và một số kỹ năng mềm phù hợp. Tuy nhiên, họ thiếu hụt nghiêm trọng các kỹ năng kỹ thuật và kinh nghiệm cần thiết cho vị trí phát triển phần mềm. Hồ sơ của ứng viên không phù hợp với yêu cầu của công việc, cần đào tạo đáng kể để đáp ứng được vị trí."
+  },
+  "Middle/Senior Java Engineer - HCM (Microservice, AWS)": {
+    "job": "Middle/Senior Java Engineer - HCM (Microservice, AWS)",
+    "pos_score": 97,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 29,
+      "soft_skills_score": 5,
+      "work_experience_score": 29,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 9
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 3,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 5,
+      "extras_score": 7
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một Java Backend Engineer có kinh nghiệm và kỹ năng xuất sắc, hoàn toàn phù hợp với vị trí công việc. Với hơn 5 năm kinh nghiệm, kiến thức sâu rộng về Java, Spring, và các công nghệ cloud, cùng với khả năng làm việc trong môi trường Agile và DevOps, ứng viên đáp ứng tất cả các yêu cầu quan trọng của vị trí. Ngoài ra, các kỹ năng mềm và chứng chỉ chuyên môn của ứng viên càng làm tăng thêm giá trị cho hồ sơ của họ.",
+    "neg_summary": "Ứng viên hoàn toàn không phù hợp với vị trí Java Backend Engineer. Hồ sơ của ứng viên tập trung vào marketing và truyền thông xã hội, thiếu hẳn các kỹ năng và kinh nghiệm cần thiết cho vị trí này. Mặc dù có một số kỹ năng mềm tốt, nhưng điều này không đủ để bù đắp cho việc thiếu kiến thức và kinh nghiệm về phát triển phần mềm Java backend."
+  },
+  "Frontend Software Engineer (Angular)": {
+    "job": "Frontend Software Engineer (Angular)",
+    "pos_score": 100,
+    "neg_score": 20,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 5,
+      "soft_skills_score": 2,
+      "work_experience_score": 3,
+      "years_of_experience_score": 5,
+      "education_score": 3,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một Frontend Software Engineer xuất sắc với kinh nghiệm và kỹ năng hoàn toàn phù hợp với vị trí. Có chuyên môn mạnh mẽ về Angular v20, Tailwind CSS và CapacitorJS, cùng với kinh nghiệm phát triển ứng dụng doanh nghiệp và tối ưu hóa hiệu suất. Kỹ năng mềm và bằng cấp, chứng chỉ của ứng viên cũng rất ấn tượng. Không có điểm yếu đáng kể nào được phát hiện.",
+    "neg_summary": "Ứng viên có nền tảng về khoa học môi trường và phân tích dữ liệu, nhưng thiếu hoàn toàn kinh nghiệm và kỹ năng cần thiết cho vị trí Frontend Software Engineer. Mặc dù có một số kỹ năng lập trình cơ bản với Python, ứng viên cần phải học và phát triển nhiều kỹ năng mới để đáp ứng yêu cầu công việc, đặc biệt là Angular và Tailwind CSS."
+  },
+  "Senior Software Developer (Shopify/Java or .NET)": {
+    "job": "Senior Software Developer (Shopify/Java or .NET)",
+    "pos_score": 100,
+    "neg_score": 10,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 3,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một sự phù hợp hoàn hảo cho vị trí Technical Lead, với hơn 8 năm kinh nghiệm trong phát triển ứng dụng Shopify tùy chỉnh và lãnh đạo đội ngũ kỹ thuật. Có kiến thức sâu rộng về Java, .NET, và các công nghệ liên quan như AWS, databases, và hệ thống xếp hàng. Kỹ năng lãnh đạo, giao tiếp và kỹ thuật của ứng viên đều xuất sắc, đáp ứng đầy đủ mọi yêu cầu của vị trí công việc.",
+    "neg_summary": "Ứng viên John Doe có nền tảng về marketing và thiếu hụt nghiêm trọng các kỹ năng kỹ thuật cần thiết cho vị trí phát triển ứng dụng Shopify. Không có kinh nghiệm lập trình, làm việc với Shopify APIs, Java, .NET, hoặc AWS. Bằng cấp và kinh nghiệm làm việc không phù hợp với yêu cầu của vị trí. Tuy nhiên, ứng viên có một số kỹ năng mềm và chứng chỉ marketing có thể hữu ích trong môi trường làm việc chung."
+  },
+  "Engineering Manager (US AI-native Product)": {
+    "job": "Engineering Manager (US AI-native Product)",
+    "pos_score": 98,
+    "neg_score": 18,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 29,
+      "years_of_experience_score": 15,
+      "education_score": 9,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 2,
+      "soft_skills_score": 3,
+      "work_experience_score": 3,
+      "years_of_experience_score": 3,
+      "education_score": 4,
+      "extras_score": 3
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "Kinh nghiệm làm việc với đội R&D Trung Quốc",
+        "importance": "important",
+        "learning_resources": [
+          "[Online] Applied Data Science with R - IBM (https://www.coursera.org/specializations/applied-data-science-r)",
+          "[Online] Modern Robotics:  Mechanics, Planning, and Control - Northwestern University (https://www.coursera.org/specializations/modernrobotics)",
+          "[UIT] Quản lý rủi ro và an toàn thông tin trong doanh nghiệp - Khoa Mạng Máy Tính Và Truyền Thông (Ngành: An Toàn Thông Tin)",
+          "[UIT] Thiết kế và phân tích thực nghiệm - Khoa Khoa Học và Kỹ Thuật Thông Tin (Ngành: Khoa Học Dữ Liệu)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên John Doe là một sự phù hợp gần như hoàn hảo cho vị trí Engineering Manager. Với hơn 8 năm kinh nghiệm, kỹ năng kỹ thuật toàn diện, và khả năng lãnh đạo xuất sắc, ứng viên đáp ứng và vượt quá hầu hết các yêu cầu của vị trí. Điểm duy nhất cần cải thiện là kinh nghiệm làm việc với đội R&D Trung Quốc, nhưng với nền tảng hiện có, ứng viên có thể nhanh chóng thích nghi với yêu cầu này.",
+    "neg_summary": "Ứng viên John Doe thiếu hụt nghiêm trọng về kỹ năng kỹ thuật và kinh nghiệm quản lý cần thiết cho vị trí Engineering Manager. Mặc dù có một số kỹ năng mềm tốt và nền tảng giáo dục đại học, nhưng kinh nghiệm và chuyên môn của ứng viên chủ yếu tập trung vào lĩnh vực marketing và thiết kế đồ họa, không phù hợp với yêu cầu của vị trí này."
+  },
+  "Junior - Senior C/C++ Developer (C#)": {
+    "job": "Junior - Senior C/C++ Developer (C#)",
+    "pos_score": 86,
+    "neg_score": 25,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 28,
+      "soft_skills_score": 5,
+      "work_experience_score": 27,
+      "years_of_experience_score": 12,
+      "education_score": 8,
+      "extras_score": 6
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 5,
+      "soft_skills_score": 2,
+      "work_experience_score": 5,
+      "years_of_experience_score": 3,
+      "education_score": 5,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "DirectX 12",
+        "importance": "important",
+        "learning_resources": [
+          "[Online] Digital Product Management - University of Virginia (https://www.coursera.org/specializations/uva-darden-digital-product-management)",
+          "[Online] Autodesk Certified Professional: AutoCAD for Design and Drafting Exam Prep - Autodesk (https://www.coursera.org/learn/autodesk-autocad-design-drafting)",
+          "[UIT] Lập trình đồ họa 3 chiều với Direct 3D - Khoa Công Nghệ Phần Mềm (Ngành: Kỹ Thuật Phần Mềm)",
+          "[UIT] Đồ họa game - Khoa Khoa Học Máy Tính (Ngành: Khoa Học Máy Tính)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên John Doe có hơn 5 năm kinh nghiệm trong phát triển phần mềm, với chuyên môn vững chắc về C/C++, C# và các công nghệ liên quan. Điểm mạnh của ứng viên bao gồm kinh nghiệm làm việc phong phú, kỹ năng kỹ thuật đa dạng, và kỹ năng mềm xuất sắc. Tuy nhiên, ứng viên có thể cần bổ sung kiến thức về DirectX 12 để đáp ứng đầy đủ yêu cầu của vị trí.",
+    "neg_summary": "Ứng viên có nền tảng về marketing và một số kỹ năng lập trình Python, nhưng thiếu hụt nghiêm trọng các kỹ năng cốt lõi cần thiết cho vị trí phát triển phần mềm như C++, C#, và các công nghệ liên quan. Kinh nghiệm làm việc của ứng viên không phù hợp với yêu cầu của vị trí, tập trung chủ yếu vào marketing thay vì phát triển phần mềm."
+  },
+  "AI Expert (Deep Learning, Machine Learning)": {
+    "job": "AI Expert (Deep Learning, Machine Learning)",
+    "pos_score": 87,
+    "neg_score": 25,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 28,
+      "soft_skills_score": 5,
+      "work_experience_score": 28,
+      "years_of_experience_score": 15,
+      "education_score": 8,
+      "extras_score": 3
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 5,
+      "soft_skills_score": 2,
+      "work_experience_score": 5,
+      "years_of_experience_score": 3,
+      "education_score": 5,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "LLM",
+        "importance": "important",
+        "learning_resources": [
+          "[Online] MLOps | Machine Learning Operations - Duke University (https://www.coursera.org/specializations/mlops-machine-learning-duke)",
+          "[Online] Machine Learning Engineering for Production (MLOps) - DeepLearning.AI (https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops)",
+          "[UIT] Phương pháp học máy trong an toàn thông tin - Khoa Mạng Máy Tính Và Truyền Thông (Ngành: An Toàn Thông Tin)",
+          "[UIT] Trí tuệ nhân tạo nâng cao - Khoa Khoa Học Máy Tính (Ngành: Khoa Học Máy Tính)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên Nguyễn Văn A là một chuyên gia AI có kinh nghiệm phong phú với hơn 8 năm trong lĩnh vực, đặc biệt mạnh về Machine Learning, NLP, Computer Vision và Chatbot. Có kỹ năng lãnh đạo và quản lý dự án xuất sắc, phù hợp với vị trí Trưởng nhóm AI. Tuy nhiên, cần bổ sung kiến thức về LLM để đáp ứng đầy đủ yêu cầu công việc.",
+    "neg_summary": "Ứng viên Nguyen Thi Anh có nền tảng marketing và kỹ năng phân tích dữ liệu cơ bản, nhưng thiếu kinh nghiệm quan trọng về AI, quản lý dự án và kiến thức ngành ngân hàng. Mặc dù có một số kỹ năng chuyển đổi như lập trình Python, nhưng ứng viên cần bổ sung nhiều kiến thức và kỹ năng để đáp ứng yêu cầu của vị trí AI Project Manager trong ngân hàng."
+  },
+  "iOS Senior (Swift/ Objective-C)": {
+    "job": "iOS Senior (Swift/ Objective-C)",
+    "pos_score": 98,
+    "neg_score": 18,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 8,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 3,
+      "soft_skills_score": 2,
+      "work_experience_score": 5,
+      "years_of_experience_score": 3,
+      "education_score": 3,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên Nguyễn Văn A là một lựa chọn xuất sắc cho vị trí Mobile App Developer & Team Lead. Với hơn 5 năm kinh nghiệm phát triển iOS, kỹ năng lãnh đạo và quản lý nhóm mạnh mẽ, cùng với kiến thức sâu rộng về Swift, Objective-C và các công nghệ liên quan, ứng viên đáp ứng hoàn hảo các yêu cầu của vị trí. Kinh nghiệm trong việc review code, đánh giá rủi ro kỹ thuật và ước lượng dự án càng làm tăng giá trị của ứng viên. Không có điểm yếu đáng kể nào được phát hiện.",
+    "neg_summary": "Ứng viên Nguyen Thi Anh có nền tảng marketing và một số kỹ năng kỹ thuật cơ bản, nhưng thiếu hoàn toàn kinh nghiệm và kỹ năng cần thiết cho vị trí phát triển iOS. Ứng viên không có kinh nghiệm trong phát triển ứng dụng di động, lập trình Swift/Objective-C, và quản lý nhóm. Mặc dù có tiềm năng học hỏi, khoảng cách giữa kỹ năng hiện tại và yêu cầu công việc là rất lớn."
+  },
+  "Senior AI Engineer (Computer Vision/NPL/LLM)": {
+    "job": "Senior AI Engineer (Computer Vision/NPL/LLM)",
+    "pos_score": 98,
+    "neg_score": 5,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 28,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 2,
+      "extras_score": 1
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "Kinh nghiệm ngân hàng",
+        "importance": "nice-to-have",
+        "learning_resources": [
+          "[Online] Supply Chain Analytics - Rutgers the State University of New Jersey (https://www.coursera.org/specializations/supply-chain-analytics)",
+          "[Online] Supply Chain Management - Rutgers the State University of New Jersey (https://www.coursera.org/specializations/supply-chain-management)",
+          "[UIT] Đánh giá hiệu năng hệ thống mạng máy tính - Khoa Mạng Máy Tính Và Truyền Thông (Ngành: Mạng máy tính và Truyền thông dữ liệu)",
+          "[UIT] Hệ thống tìm kiếm, phát hiện và ngăn ngừa xâm nhập - Khoa Mạng Máy Tính Và Truyền Thông (Ngành: An Toàn Thông Tin)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên Nguyen Van A có một hồ sơ rất ấn tượng, phù hợp gần như hoàn hảo với yêu cầu công việc. Có kinh nghiệm mạnh mẽ trong AI/ML, đặc biệt là trong Computer Vision và NLP. Kỹ năng kỹ thuật và mềm đều xuất sắc, với kinh nghiệm làm việc tại các công ty lớn. Điểm yếu duy nhất là chưa có kinh nghiệm cụ thể trong lĩnh vực ngân hàng, nhưng điều này không ảnh hưởng nhiều đến sự phù hợp tổng thể của ứng viên.",
+    "neg_summary": "Ứng viên hoàn toàn không phù hợp với vị trí AI Engineer. Hồ sơ của ứng viên tập trung vào lĩnh vực marketing và truyền thông xã hội, không có kiến thức hay kỹ năng liên quan đến AI, ML, DL, Computer Vision hoặc NLP. Ứng viên thiếu hụt nghiêm trọng về kỹ năng lập trình và kinh nghiệm với DevOps và MLOps cần thiết cho vị trí này."
+  },
+  "Frontend Developer (ReactJS)": {
+    "job": "Frontend Developer (ReactJS)",
+    "pos_score": 98,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 8,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 3,
+      "soft_skills_score": 3,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 5,
+      "extras_score": 4
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên Nguyen Van A là một lựa chọn hoàn hảo cho vị trí này. Với 5 năm kinh nghiệm, kỹ năng kỹ thuật đa dạng và phù hợp, cùng với kỹ năng mềm xuất sắc, ứng viên đáp ứng và vượt trội hầu hết các yêu cầu của công việc. Kinh nghiệm trong thiết kế, phát triển hệ thống phần mềm, xây dựng ứng dụng web và di động, cùng với khả năng làm việc với các công nghệ hiện đại làm cho ứng viên trở nên đặc biệt phù hợp với vị trí này.",
+    "neg_summary": "Ứng viên Nguyen Thi Anh có nền tảng về marketing và một số kỹ năng mềm tốt, nhưng lại thiếu hầu hết các kỹ năng kỹ thuật và kinh nghiệm cần thiết cho vị trí phát triển phần mềm. Mặc dù có một số chứng chỉ và kinh nghiệm với Python cho phân tích dữ liệu marketing, nhưng điều này không đủ để đáp ứng yêu cầu của vị trí công việc này."
+  },
+  "PHP Fullstack Developer (SaaS product)": {
+    "job": "PHP Fullstack Developer (SaaS product)",
+    "pos_score": 88,
+    "neg_score": 12,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 27,
+      "soft_skills_score": 5,
+      "work_experience_score": 27,
+      "years_of_experience_score": 13,
+      "education_score": 8,
+      "extras_score": 8
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 2,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 3,
+      "education_score": 2,
+      "extras_score": 3
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "Laravel",
+        "importance": "important",
+        "learning_resources": [
+          "[Online] Learning Linux for LFCA Certification - LearnQuest (https://www.coursera.org/specializations/linux-for-lfca-certification)",
+          "[Online] Assets, Threats, and Vulnerabilities - Google (https://www.coursera.org/learn/assets-threats-and-vulnerabilities)",
+          "[UIT] Lập trình mạng căn bản - Khoa Mạng Máy Tính Và Truyền Thông (Ngành: An Toàn Thông Tin)",
+          "[UIT] Thiết kế giao diện và trải nghiệm người dùng - Khoa Công Nghệ Phần Mềm (Ngành: Kỹ Thuật Phần Mềm)"
+        ]
+      },
+      {
+        "skill_name": "Symfony",
+        "importance": "important",
+        "learning_resources": [
+          "[Online] Unsupervised Learning, Recommenders, Reinforcement Learning - DeepLearning.AI (https://www.coursera.org/learn/unsupervised-learning-recommenders-reinforcement-learning)",
+          "[Online] Reinforcement Learning - University of Alberta (https://www.coursera.org/specializations/reinforcement-learning)",
+          "[UIT] Rút trích và truy vấn thông tin - Khoa Khoa Học và Kỹ Thuật Thông Tin (Ngành: Khoa Học Dữ Liệu)",
+          "[UIT] Ngôn ngữ lập trình Java - Khoa Công Nghệ Phần Mềm (Ngành: Kỹ Thuật Phần Mềm)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên Nguyen Van A là một PHP Software Engineer có kinh nghiệm và kỹ năng ấn tượng. Với hơn 5 năm kinh nghiệm, ứng viên thể hiện sự thành thạo trong PHP, Java và các công cụ AI. Điểm mạnh của ứng viên bao gồm kinh nghiệm phát triển hệ thống lớn, kỹ năng mềm tốt và khả năng sử dụng công nghệ AI. Tuy nhiên, cần bổ sung kinh nghiệm cụ thể về Laravel và Symfony để đáp ứng đầy đủ yêu cầu công việc.",
+    "neg_summary": "Ứng viên có nền tảng về marketing và phân tích dữ liệu, nhưng thiếu hụt nghiêm trọng các kỹ năng và kinh nghiệm cần thiết cho vị trí PHP Software Engineer. Họ không có kinh nghiệm làm việc với PHP, Java hoặc phát triển backend, và nền tảng giáo dục không phù hợp với yêu cầu công việc. Mặc dù có một số kỹ năng lập trình cơ bản với Python, nhưng điều này không đủ để bù đắp cho những thiếu sót lớn trong các kỹ năng quan trọng khác."
+  },
+  "Senior Mobile Native Developer (iOS/Android)": {
+    "job": "Senior Mobile Native Developer (iOS/Android)",
+    "pos_score": 100,
+    "neg_score": 10,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 3,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 3,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một sự lựa chọn hoàn hảo cho vị trí Senior Mobile Native Developer. Với hơn 8 năm kinh nghiệm, kỹ năng chuyên môn sâu rộng về iOS và Android, cùng với khả năng lãnh đạo và hướng dẫn xuất sắc, ứng viên đáp ứng và vượt trội tất cả các yêu cầu của vị trí. Kinh nghiệm của họ trong việc phát triển, tối ưu hóa và bảo mật ứng dụng di động, cùng với khả năng làm việc trong môi trường Agile và sử dụng các công cụ CI/CD, làm cho họ trở thành ứng viên lý tưởng cho vai trò này.",
+    "neg_summary": "Ứng viên có nền tảng về marketing và phân tích dữ liệu, nhưng hoàn toàn thiếu kinh nghiệm và kỹ năng cần thiết cho vị trí Senior Mobile Native Developer. Không có kiến thức về Swift, Kotlin, hoặc phát triển ứng dụng di động. Điểm mạnh duy nhất là khả năng lập trình Python cơ bản, nhưng không đủ để bù đắp cho những thiếu sót quan trọng khác."
+  },
+  "Java Developer (Level Mid to Lead) - 3 năm KN": {
+    "job": "Java Developer (Level Mid to Lead) - 3 năm KN",
+    "pos_score": 95,
+    "neg_score": 0,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 28,
+      "soft_skills_score": 5,
+      "work_experience_score": 29,
+      "years_of_experience_score": 15,
+      "education_score": 9,
+      "extras_score": 9
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 0,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 0,
+      "extras_score": 0
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "ERP",
+        "importance": "nice-to-have",
+        "learning_resources": [
+          "[Online] Understanding Research Methods - University of London (https://www.coursera.org/learn/research-methods)",
+          "[Online] IBM DevOps and Software Engineering - IBM (https://www.coursera.org/professional-certificates/devops-and-software-engineering)",
+          "[UIT] Quản lý chuỗi cung ứng dược và thiết bị y tế - Khoa Hệ Thống Thông Tin (Ngành: Hệ Thống Thông Tin)",
+          "[UIT] Tối ưu hóa công cụ tìm kiếm (SEO) - Khoa Khoa Học và Kỹ Thuật Thông Tin (Ngành: Công Nghệ Thông Tin)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên Nguyễn Văn A là một Java Developer xuất sắc với hơn 5 năm kinh nghiệm, có kiến thức sâu rộng về Java và các công nghệ liên quan. Ứng viên có khả năng lãnh đạo nhóm, thiết kế tổng thể và chi tiết cho các dự án phần mềm. Với kinh nghiệm phong phú và kỹ năng toàn diện, ứng viên hoàn toàn phù hợp với vị trí Java Developer cấp độ từ Middle đến Prelead/Lead tại Viettel Construction.",
+    "neg_summary": "Ứng viên Nguyen Thi Anh hoàn toàn không phù hợp với vị trí Java Developer. Họ có nền tảng về marketing và khoa học dữ liệu, nhưng thiếu hoàn toàn kỹ năng và kinh nghiệm cần thiết trong lập trình Java và phát triển phần mềm. Bằng cấp, kinh nghiệm làm việc và các kỹ năng hiện tại của ứng viên không liên quan đến yêu cầu của vị trí này."
+  },
+  "Senior Unity Developer": {
+    "job": "Senior Unity Developer",
+    "pos_score": 95,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 29,
+      "soft_skills_score": 5,
+      "work_experience_score": 28,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 8
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 3,
+      "soft_skills_score": 2,
+      "work_experience_score": 2,
+      "years_of_experience_score": 0,
+      "education_score": 3,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "Outdoor Living Solutions",
+        "importance": "important",
+        "learning_resources": [
+          "[Online] Connected Leadership - Yale University (https://www.coursera.org/learn/connected-leadership)",
+          "[Online] System Administration and IT Infrastructure Services - Google (https://www.coursera.org/learn/system-administration-it-infrastructure-services)",
+          "[UIT] Lập trình mạng căn bản - Khoa Mạng Máy Tính Và Truyền Thông (Ngành: An Toàn Thông Tin)",
+          "[UIT] Internet và công nghệ Web - Khoa Khoa Học và Kỹ Thuật Thông Tin (Ngành: Công Nghệ Thông Tin)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên John Doe là một lựa chọn gần như hoàn hảo cho vị trí Senior Software Developer tại Simpson Strong-Tie. Với hơn 8 năm kinh nghiệm, kỹ năng mạnh mẽ về Unity, .NET Core, và C#, cùng với kinh nghiệm làm việc theo phương pháp Agile Scrum, ứng viên đáp ứng xuất sắc hầu hết các yêu cầu của vị trí. Điểm yếu duy nhất là thiếu kinh nghiệm cụ thể về Outdoor Living Solutions, nhưng với nền tảng kỹ thuật vững chắc, ứng viên có thể nhanh chóng học hỏi và áp dụng.",
+    "neg_summary": "Ứng viên có nền tảng về nghệ thuật và marketing, với một số kinh nghiệm trong phân tích dữ liệu. Tuy nhiên, ứng viên thiếu hụt nghiêm trọng các kỹ năng và kinh nghiệm cần thiết cho vị trí Senior Software Developer tại Simpson Strong-Tie. Các kỹ năng chính như Unity, .NET Core, và kinh nghiệm phát triển phần mềm đều không có trong hồ sơ của ứng viên."
+  },
+  "Ruby on Rails Developer (Middle/Senior)": {
+    "job": "Ruby on Rails Developer (Middle/Senior)",
+    "pos_score": 98,
+    "neg_score": 10,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 8,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 1,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 5,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên Nguyen Van A là một lựa chọn xuất sắc cho vị trí Ruby on Rails Developer tại Oivan. Với hơn 5 năm kinh nghiệm, kỹ năng chuyên môn mạnh mẽ về Ruby on Rails, và khả năng làm việc trong môi trường đa văn hóa, ứng viên đáp ứng đầy đủ và vượt trội các yêu cầu của vị trí. Kinh nghiệm làm việc với Scrum và chứng chỉ liên quan cũng là những điểm cộng đáng kể.",
+    "neg_summary": "Ứng viên hoàn toàn không phù hợp với vị trí Ruby on Rails Developer. Họ có nền tảng về marketing và thiếu hụt các kỹ năng kỹ thuật cần thiết. Không có kinh nghiệm làm việc trong phát triển phần mềm và thiếu kiến thức về Ruby on Rails, Scrum và các công nghệ liên quan. Bằng cấp và một số kỹ năng mềm là những điểm tích cực duy nhất, nhưng không đủ để bù đắp cho sự thiếu hụt về kỹ năng chuyên môn."
+  },
+  "AI engineer (Python/ PyTorch/ TensorFlow/ Hugging Face)": {
+    "job": "AI engineer (Python/ PyTorch/ TensorFlow/ Hugging Face)",
+    "pos_score": 100,
+    "neg_score": 10,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 3,
+      "extras_score": 5
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên Nguyễn Văn A có hồ sơ hoàn hảo cho vị trí này. Với 8 năm kinh nghiệm trong lĩnh vực AI/ML, bằng Thạc sĩ về trí tuệ nhân tạo, và kinh nghiệm làm việc phù hợp, ứng viên đáp ứng đầy đủ và vượt trội mọi yêu cầu của công việc. Kỹ năng chuyên môn, kinh nghiệm làm việc, và khả năng lãnh đạo của ứng viên hoàn toàn phù hợp với mô tả công việc.",
+    "neg_summary": "Ứng viên có nền tảng marketing và kỹ năng mềm tốt, nhưng hoàn toàn thiếu kiến thức và kinh nghiệm về AI/ML, phát triển backend và khoa học dữ liệu. Không có kinh nghiệm làm việc liên quan đến vị trí AI/ML Engineer. Cần đào tạo lại hoàn toàn để đáp ứng yêu cầu công việc."
+  },
+  "Backend Engineer (Java/kotlin/Go/Python)": {
+    "job": "Backend Engineer (Java/kotlin/Go/Python)",
+    "pos_score": 100,
+    "neg_score": 12,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 3,
+      "soft_skills_score": 2,
+      "work_experience_score": 2,
+      "years_of_experience_score": 2,
+      "education_score": 1,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một Backend Engineer xuất sắc với kinh nghiệm phong phú trong việc thiết kế và xây dựng các hệ thống micro-services có khả năng mở rộng. Anh ấy có kiến thức sâu rộng về nhiều công nghệ backend, cơ sở dữ liệu và nền tảng đám mây. Kinh nghiệm làm việc của anh ấy hoàn toàn phù hợp với yêu cầu của vị trí, bao gồm cả việc làm việc trực tiếp với các nhà sáng lập và lãnh đạo sản phẩm. Ngoài ra, John còn có kỹ năng mềm xuất sắc và nền tảng giáo dục vững chắc từ Đại học Stanford.",
+    "neg_summary": "Ứng viên có một số kỹ năng lập trình cơ bản nhưng thiếu kinh nghiệm và kiến thức chuyên sâu về Backend Engineering. Bằng cấp và kinh nghiệm làm việc chủ yếu tập trung vào marketing và khoa học dữ liệu, không phù hợp với yêu cầu của vị trí Backend Engineer. Ứng viên cần học thêm nhiều kỹ năng quan trọng như Java, microservices và quy trình làm việc AI-native."
+  },
+  "Lead Backend Engineer (Java, Python, GenAI)": {
+    "job": "Lead Backend Engineer (Java, Python, GenAI)",
+    "pos_score": 100,
+    "neg_score": 0,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 0,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 0,
+      "extras_score": 0
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một sự phù hợp hoàn hảo cho vị trí Lead Software Engineer tại Katalon. Với hơn 8 năm kinh nghiệm trong phát triển và nâng cao các công cụ tự động hóa kiểm thử được tăng cường bởi AI, ứng viên đáp ứng đầy đủ và vượt trội tất cả các yêu cầu của vị trí. Kinh nghiệm chuyên sâu về các công nghệ liên quan, kỹ năng lãnh đạo mạnh mẽ và nền tảng giáo dục vững chắc làm cho John trở thành ứng viên lý tưởng cho vai trò này.",
+    "neg_summary": "Ứng viên John Doe hoàn toàn không phù hợp với vị trí Lead Software Engineer tại Katalon. Hồ sơ của ứng viên thể hiện kinh nghiệm và kỹ năng trong lĩnh vực marketing, trong khi vị trí yêu cầu chuyên môn sâu về phát triển phần mềm, kiểm thử tự động và công nghệ AI. Không có điểm nào trong hồ sơ của ứng viên phù hợp với yêu cầu của vị trí này."
+  },
+  "Mid/Senior Backend Developer (Golang)": {
+    "job": "Mid/Senior Backend Developer (Golang)",
+    "pos_score": 100,
+    "neg_score": 7,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 2,
+      "soft_skills_score": 1,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 2,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một sự phù hợp hoàn hảo cho vị trí Backend Developer. Với hơn 5 năm kinh nghiệm trong việc phát triển hệ thống backend cho nền tảng gamification, ứng viên đáp ứng và vượt quá tất cả các yêu cầu của công việc. Kỹ năng kỹ thuật mạnh mẽ, kinh nghiệm làm việc phù hợp, và các kỹ năng mềm xuất sắc làm cho ứng viên trở thành một lựa chọn lý tưởng cho vị trí này.",
+    "neg_summary": "Ứng viên có nền tảng về marketing và thiết kế, với một số kiến thức cơ bản về Python và phân tích dữ liệu. Tuy nhiên, ứng viên thiếu hụt nghiêm trọng các kỹ năng và kinh nghiệm cần thiết cho vị trí Backend Developer, bao gồm Java, thiết kế API, phát triển backend và quản lý hệ thống máy chủ. Kinh nghiệm làm việc của ứng viên không liên quan đến vị trí này, và trình độ học vấn cũng không phù hợp với yêu cầu công việc."
+  },
+  "Project Manager (Software, CRM, Finance)": {
+    "job": "Project Manager (Software, CRM, Finance)",
+    "pos_score": 95,
+    "neg_score": 10,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 28,
+      "soft_skills_score": 5,
+      "work_experience_score": 29,
+      "years_of_experience_score": 15,
+      "education_score": 8,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 2,
+      "work_experience_score": 0,
+      "years_of_experience_score": 3,
+      "education_score": 3,
+      "extras_score": 2
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [
+      {
+        "skill_name": "Công cụ quản lý dự án cụ thể",
+        "importance": "nice-to-have",
+        "learning_resources": [
+          "[Online] Cybersecurity Compliance Framework & System Administration - IBM (https://www.coursera.org/learn/cybersecurity-compliance-framework-system-administration)",
+          "[Online] Cybersecurity Operations Fundamentals - Cisco Learning and Certifications (https://www.coursera.org/specializations/cbrops)",
+          "[UIT] Quản lý dự án công nghệ thông tin - Khoa Hệ Thống Thông Tin (Ngành: Hệ Thống Thông Tin)",
+          "[UIT] Quản lý dự án phát triển phần mềm - Khoa Công Nghệ Phần Mềm (Ngành: Kỹ Thuật Phần Mềm)"
+        ]
+      }
+    ],
+    "pos_summary": "Ứng viên Nguyen Van A có hồ sơ gần như hoàn hảo cho vị trí Chuyên viên Dự án. Với 5 năm kinh nghiệm trong lĩnh vực quản lý dự án, kiến thức sâu rộng về quy trình dự án, và kỹ năng mềm xuất sắc, ứng viên đáp ứng hầu hết các yêu cầu của công việc. Chứng chỉ PMP và kinh nghiệm trong việc phát triển sản phẩm nội bộ là những điểm mạnh nổi bật. Tuy nhiên, có thể cần làm rõ thêm về kinh nghiệm sử dụng các công cụ quản lý dự án cụ thể.",
+    "neg_summary": "Ứng viên Nguyễn Văn A có nền tảng về marketing và phân tích dữ liệu, nhưng thiếu hoàn toàn kinh nghiệm và kỹ năng cần thiết cho vị trí quản lý dự án IT. Mặc dù có một số kỹ năng mềm tốt, nhưng ứng viên cần phải học hỏi và phát triển nhiều kỹ năng cứng quan trọng liên quan đến quản lý dự án và phát triển phần mềm để đáp ứng yêu cầu của vị trí này."
+  },
+  "Python Backend Engineer for AI Agent (Tech Lead/Senior)": {
+    "job": "Python Backend Engineer for AI Agent (Tech Lead/Senior)",
+    "pos_score": 100,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 3,
+      "soft_skills_score": 2,
+      "work_experience_score": 2,
+      "years_of_experience_score": 0,
+      "education_score": 5,
+      "extras_score": 3
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một sự phù hợp hoàn hảo cho vị trí này. Anh ấy có kinh nghiệm phong phú trong phát triển backend, đặc biệt là trong việc xây dựng kiến trúc hệ thống phức tạp cho các ứng dụng AI quy mô lớn. Kỹ năng kỹ thuật của anh ấy bao gồm đầy đủ các yêu cầu của công việc, từ ngôn ngữ lập trình đến cơ sở dữ liệu và cloud platform. Ngoài ra, John còn thể hiện khả năng lãnh đạo kỹ thuật mạnh mẽ và kỹ năng mềm xuất sắc, phù hợp với vai trò lãnh đạo trong một nhóm đa chức năng.",
+    "neg_summary": "Ứng viên John Doe có nền tảng trong lĩnh vực marketing với bằng cử nhân liên quan. Tuy nhiên, hồ sơ của ứng viên không phù hợp với vị trí Backend Developer. Ứng viên thiếu hụt nghiêm trọng các kỹ năng kỹ thuật cần thiết, không có kinh nghiệm làm việc liên quan, và cần phải học thêm nhiều về phát triển backend, kiến trúc hệ thống, và các công nghệ liên quan."
+  },
+  "DevOps/DevSecOps Engineer - Solution Consultant": {
+    "job": "DevOps/DevSecOps Engineer - Solution Consultant",
+    "pos_score": 98,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 14,
+      "education_score": 10,
+      "extras_score": 9
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 0,
+      "soft_skills_score": 1,
+      "work_experience_score": 0,
+      "years_of_experience_score": 0,
+      "education_score": 5,
+      "extras_score": 9
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên Nguyễn Văn A là một chuyên gia DevSecOps xuất sắc với 5 năm kinh nghiệm, có kiến thức sâu rộng về các công nghệ liên quan và kinh nghiệm triển khai dự án trong nhiều lĩnh vực quan trọng. Ứng viên có nền tảng giáo dục vững chắc, các chứng chỉ chuyên môn giá trị, và kỹ năng mềm tốt. Không có điểm yếu đáng kể nào được phát hiện, chỉ có cơ hội để phát triển thêm kinh nghiệm.",
+    "neg_summary": "Ứng viên có nền tảng về marketing và phân tích dữ liệu, nhưng thiếu hoàn toàn các kỹ năng và kinh nghiệm cần thiết cho vị trí DevSecOps Engineer. Không có kiến thức về DevSecOps, Java, Redhat, VMware hoặc các công nghệ liên quan. Kinh nghiệm làm việc không phù hợp với yêu cầu của vị trí."
+  },
+  "Senior RPA Developer (Power Automate/Python/Dify.ai)": {
+    "job": "Senior RPA Developer (Power Automate/Python/Dify.ai)",
+    "pos_score": 97,
+    "neg_score": 14,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 29,
+      "years_of_experience_score": 14,
+      "education_score": 9,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 2,
+      "soft_skills_score": 3,
+      "work_experience_score": 2,
+      "years_of_experience_score": 1,
+      "education_score": 3,
+      "extras_score": 3
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một chuyên gia RPA xuất sắc với hơn 8 năm kinh nghiệm, đáp ứng hoàn hảo các yêu cầu của vị trí RPA Lead. Có kiến thức sâu rộng về các công cụ RPA, ngôn ngữ lập trình và công nghệ liên quan. Thể hiện kỹ năng lãnh đạo, giao tiếp và giải quyết vấn đề mạnh mẽ. Kinh nghiệm với công nghệ mới như AI tạo sinh là một lợi thế đáng kể.",
+    "neg_summary": "Ứng viên John Doe có nền tảng về marketing và một số kỹ năng mềm tốt, nhưng thiếu hầu hết các kỹ năng kỹ thuật và kinh nghiệm cần thiết cho vị trí RPA Developer. Mặc dù có kiến thức cơ bản về Python, ứng viên không có kinh nghiệm với RPA, Java, SDLC, hoặc các công nghệ liên quan khác. Cần đào tạo đáng kể để đáp ứng yêu cầu của vị trí."
+  },
+  "Data Engineer (Python/Cloud/SQL/ETL)": {
+    "job": "Data Engineer (Python/Cloud/SQL/ETL)",
+    "pos_score": 100,
+    "neg_score": 15,
+    "success": true,
+    "pos_breakdown": {
+      "hard_skills_score": 30,
+      "soft_skills_score": 5,
+      "work_experience_score": 30,
+      "years_of_experience_score": 15,
+      "education_score": 10,
+      "extras_score": 10
+    },
+    "neg_breakdown": {
+      "hard_skills_score": 3,
+      "soft_skills_score": 2,
+      "work_experience_score": 2,
+      "years_of_experience_score": 1,
+      "education_score": 3,
+      "extras_score": 4
+    },
+    "pos_recommendation": "suitable",
+    "neg_recommendation": "not_suitable",
+    "missing_skills": [],
+    "pos_summary": "Ứng viên John Doe là một Data Engineer xuất sắc với hơn 8 năm kinh nghiệm, đáp ứng và vượt trội tất cả các yêu cầu của vị trí. Anh ấy có kiến thức sâu rộng về các công nghệ đám mây, giải pháp lưu trữ dữ liệu, và công cụ ETL. Kinh nghiệm làm việc phong phú, kỹ năng mềm tốt, và các chứng chỉ chuyên môn càng làm tăng giá trị của ứng viên. Không có điểm yếu đáng kể nào được phát hiện.",
+    "neg_summary": "Ứng viên có nền tảng về nghệ thuật và marketing với một số kiến thức cơ bản về Python và khoa học dữ liệu. Tuy nhiên, họ thiếu hầu hết các kỹ năng và kinh nghiệm cần thiết cho vị trí Data Engineer. Điểm mạnh chính của ứng viên là khả năng làm việc nhóm và sự quan tâm đến học hỏi, nhưng cần phát triển đáng kể các kỹ năng kỹ thuật liên quan đến data engineering."
   }
 }

@@ -133,7 +133,7 @@ def visualize_recommendation(data: List[Dict], output_dir: str):
 
 def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    results_dir = os.path.join(base_dir, "results")
+    results_dir = os.path.join(base_dir, "..", "results")
     charts_dir = os.path.join(results_dir, "charts")
 
     ensure_dir(charts_dir)
